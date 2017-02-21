@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+// 3rd-party dependencies imports
+import 'hammerjs';
+import { MaterialModule } from '@angular/material';
+
+// local imports
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -12,7 +17,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

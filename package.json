@@ -6,7 +6,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "test": "ng test",
+    "test": "karma start --single-run",
+    "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

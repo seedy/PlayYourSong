@@ -1,3 +1,19 @@
-<md-toolbar color="primary">
-  <span></span>
+<md-toolbar color="accent">
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>menu</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item>
+      <md-icon>fingerprint</md-icon>
+      <span>Register</span>
+    </button>
+    <button md-menu-item [disabled]="isLoggedIn">
+      <md-icon>account_circle</md-icon>
+      <span>Log in apps</span>
+    </button>
+  </md-menu>
+  <button md-menu-item>
+    <md-icon>home</md-icon>
+    <span color="accent">PlayYourSong</span>
+  </button>
 </md-toolbar>

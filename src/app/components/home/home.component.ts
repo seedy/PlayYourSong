@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  sidenavOpen : boolean;
   constructor() { }
 
   ngOnInit() {
+    this.sidenavOpen = false;
+  }
+
+  toggleSidenav(){
+    this.sidenavOpen = !this.sidenavOpen;
   }
 
 }

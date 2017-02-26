@@ -1,6 +1,14 @@
 <md-toolbar color="primary">
-  <button md-icon-button [mdMenuTriggerFor]="menu">
+  <button md-icon-button (click)="toggleMenu()">
     <md-icon>menu</md-icon>
+  </button>
+
+  <button md-menu-item>
+    <md-icon>home</md-icon>
+    <span>PlayYourSong</span>
+  </button>
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
   </button>
   <md-menu #menu="mdMenu">
     <button md-menu-item>
@@ -12,8 +20,4 @@
       <span>Log in apps</span>
     </button>
   </md-menu>
-  <button md-menu-item>
-    <md-icon>home</md-icon>
-    <span>PlayYourSong</span>
-  </button>
 </md-toolbar>

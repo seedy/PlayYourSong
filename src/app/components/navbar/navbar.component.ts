@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'pys-navbar',
@@ -7,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn = false;
-
+  @Output() onToggleMenu = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
   }
 
+  toggleMenu(){
+    this.onToggleMenu.emit();
+  }
 }

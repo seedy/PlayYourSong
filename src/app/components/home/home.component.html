@@ -1,4 +1,6 @@
-<pys-navbar></pys-navbar>
-<div id="content">
-  <pys-welcome-bar></pys-welcome-bar>
-</div>
+<pys-sidenav [open]="sidenavOpen" (onClosed)="toggleSidenav()">
+  <pys-navbar (onToggleMenu)="toggleSidenav()"></pys-navbar>
+  <div id="content">
+    <pys-welcome-bar></pys-welcome-bar>
+  </div>
+</pys-sidenav>

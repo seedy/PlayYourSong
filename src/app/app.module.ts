@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HomeComponent } from './components/home/home.component';
 import { WelcomeBarComponent } from './components/welcome-bar/welcome-bar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     PageNotFoundComponent,
     HomeComponent,
     WelcomeBarComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

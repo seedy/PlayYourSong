@@ -17,4 +17,8 @@ export class HomeComponent implements OnInit {
     this.sidenavOpen = !this.sidenavOpen;
   }
 
+  sideNavClosed(){
+    this.sidenavOpen = false;
+  }
+
 }

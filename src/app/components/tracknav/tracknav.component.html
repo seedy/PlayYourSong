@@ -1,0 +1,17 @@
+<md-sidenav-container>
+  <md-sidenav  mode="side" [opened]="open" (close)="onSidenavClosed()">
+    <div class="sidenav-header">
+      <!-- TODO : Display header -->
+    </div>
+    <button md-mini-fab>
+      <md-icon>add</md-icon>
+    </button>
+    <md-list>
+      <md-list-item routerLink="{{track.path}}" *ngFor="let track of tracks">
+        <md-icon>{{track.thumbnail}}</md-icon>
+        <span *ngIf="open">{{track.text}}</span>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+  <ng-content></ng-content>
+</md-sidenav-container>

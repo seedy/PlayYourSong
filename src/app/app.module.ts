@@ -15,7 +15,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HomeComponent } from './components/home/home.component';
 import { WelcomeBarComponent } from './components/welcome-bar/welcome-bar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { TracknavComponent } from './components/tracknav/tracknav.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     HomeComponent,
     WelcomeBarComponent,
     NavbarComponent,
-    SidenavComponent
+    TracknavComponent
   ],
   imports: [
     BrowserModule,

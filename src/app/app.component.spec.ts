@@ -9,6 +9,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        RouterTestingModule.withRoutes([]),
+      ]
     });
     TestBed.compileComponents();
   });

@@ -1,0 +1,13 @@
+md-grid-list {
+    margin-top: 10px;
+    md-grid-tile {
+      span{
+        &.title, &.mat-subheader{
+          color: white;
+          font-weight: bold;
+          margin-bottom: 20px;
+          font-size: 21px;
+        }
+      }
+    }
+  }

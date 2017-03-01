@@ -1,22 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import { TracknavComponent } from './tracknav.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('TracknavComponent', () => {
+  let component: TracknavComponent;
+  let fixture: ComponentFixture<TracknavComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      declarations: [ TracknavComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(TracknavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,31 @@
+<md-toolbar color="primary">
+  <button md-icon-button (click)="toggleMenu()">
+    <md-icon>menu</md-icon>
+  </button>
+
+  <button class="title" md-button>
+    <md-icon>home</md-icon>
+    <span>PlayYourSong</span>
+  </button>
+  <span class="search-box">
+    <md-input-container class="search-sm" [dividerColor]="'accent'" [floatPlaceholder]="'always'">
+      <input type="search" mdInput placeholder="Search" [(ngModel)]="search" />
+    </md-input-container>
+    <button md-icon-button class="search-sm">
+      <md-icon>search</md-icon>
+    </button>
+  </span>
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item>
+      <md-icon>fingerprint</md-icon>
+      <span>Register</span>
+    </button>
+    <button md-menu-item [disabled]="isLoggedIn">
+      <md-icon>account_circle</md-icon>
+      <span>Log in apps</span>
+    </button>
+  </md-menu>
+</md-toolbar>

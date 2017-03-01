@@ -1,0 +1,67 @@
+<md-grid-list cols="4" rowHeight="100px">
+  <md-grid-tile
+    *ngFor="let tile of tiles"
+    [colspan]="tile.cols"
+    [rowspan]="tile.rows"
+    [style.background]="tile.color">
+    <span class="title">{{tile.title}}</span>
+  </md-grid-tile>
+  <md-grid-tile
+    [colspan]="4"
+    [rowspan]="6"
+    [style.background]="'#ffca28'">
+    <md-list>
+      <span md-subheader>Search your favorite songs cross-applications</span>
+        <md-list-item>
+          <md-chip-list>
+            <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-soundcloud'"></md-icon>
+            <md-chip><a class="link">Register</a></md-chip>
+            <md-chip><a class="link">Sync</a></md-chip>
+          </md-chip-list>
+        </md-list-item>
+        <md-list-item>
+          <md-chip-list>
+            <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-youtube'"></md-icon>
+            <md-chip><a class="link">Register</a></md-chip>
+            <md-chip><a class="link">Sync</a></md-chip>
+          </md-chip-list>
+        </md-list-item>
+        <md-list-item>
+          <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-vimeo'"></md-icon>
+          <md-chip-list>
+            <md-chip><a class="link">Register</a></md-chip>
+            <md-chip><a class="link">Sync</a></md-chip>
+          </md-chip-list>
+        </md-list-item>
+        <md-list-item>
+          <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-bandcamp'"></md-icon>
+          <md-chip-list>
+            <md-chip><a class="link">Register</a></md-chip>
+            <md-chip><a class="link">Sync</a></md-chip>
+          </md-chip-list>
+        </md-list-item>
+        <md-list-item>
+          <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-twitch'"></md-icon>
+          <md-chip-list>
+            <md-chip><a class="link">Register</a></md-chip>
+            <md-chip><a class="link">Sync</a></md-chip>
+          </md-chip-list>
+        </md-list-item>
+    </md-list>
+  </md-grid-tile>
+  <md-grid-tile
+    [colspan]="3"
+    [rowspan]="3"
+    [style.background]="'#d4e157'">
+    <md-list>
+      <md-list-item><span class="title">Build up your favorite playlist</span></md-list-item>
+      <md-list-item>
+
+      </md-list-item>
+    </md-list>
+  </md-grid-tile>
+  <md-grid-tile
+    [colspan]="1"
+    [rowspan]="3"
+    [style.background]="'#66bb6a'"></md-grid-tile>
+</md-grid-list>

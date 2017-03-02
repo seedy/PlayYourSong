@@ -18,8 +18,7 @@
       "tsconfig": "tsconfig.json",
       "prefix": "pys",
       "styles": [
-        "styles.css",
-        "theme.scss"
+        "_theme.scss"
       ],
       "scripts": [
       ],

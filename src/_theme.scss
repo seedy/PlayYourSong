@@ -1,4 +1,6 @@
-@import '~@angular/material/core/theming/all-theme';
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+@import '../node_modules/@angular/material/core/theming/_all-theme';
 
 // Include the base styles for Angular Material core. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -7,16 +9,16 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$pys-primary: mat-palette($mat-amber);
-$pys-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
+$mat-primary: mat-palette($mat-amber, A200, A100, A400);
+$mat-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$pys-warn:    mat-palette($mat-red);
+$mat-warn:    mat-palette($mat-red, A200, A100, A400);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$pys-theme: mat-light-theme($pys-primary, $pys-accent, $pys-warn);
+$mat-theme: mat-light-theme($mat-primary, $mat-accent, $mat-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($pys-theme);
+@include angular-material-theme($mat-theme);

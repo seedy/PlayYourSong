@@ -8,13 +8,8 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   search = '';
-  @Output() onToggleMenu = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
-  }
-
-  toggleMenu(){
-    this.onToggleMenu.emit();
   }
 }

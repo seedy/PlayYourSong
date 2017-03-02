@@ -1,15 +1,26 @@
 <md-sidenav-container>
-  <md-sidenav  mode="side" [opened]="open" (close)="onSidenavClosed()">
-    <div class="sidenav-header">
-      <!-- TODO : Display header -->
+  <md-sidenav  mode="side" [opened]="open" (close)="onTracknavClosed()">
+    <div class="tracknav-header">
+      <div class="tracknav-closed">
+        <button md-icon-button (click)="toggle()">
+          <md-icon>menu</md-icon>
+        </button>
+      </div>
+      <button md-mini-fab (click)="togglePlayer()" >
+        <md-icon>{{playing? 'pause': 'play_arrow'}}</md-icon>
+      </button>
+      <button class="tracknav-open btn-right" md-icon-button (click)="toggle()">
+        <md-icon>chevron_left</md-icon>
+      </button>
     </div>
-    <button md-mini-fab>
-      <md-icon>add</md-icon>
-    </button>
+    <!-- TODO : Playlist component -->
     <md-list>
+      <!-- TODO : Track component -->
       <md-list-item routerLink="{{track.path}}" *ngFor="let track of tracks">
-        <md-icon>{{track.thumbnail}}</md-icon>
-        <span *ngIf="open">{{track.text}}</span>
+        <a [ngClass]="{'current': track.selected}">
+          <md-icon>{{track.thumbnail}}</md-icon>
+          <span class="tracknav-open">{{track.text}}</span>
+        </a>
       </md-list-item>
     </md-list>
   </md-sidenav>

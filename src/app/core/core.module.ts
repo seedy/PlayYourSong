@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-// 3rd-party dependencies imports
-import 'hammerjs';
-import { MaterialModule } from '@angular/material';
+  // 3rd-party dependencies imports
+  import 'hammerjs';
+  import { MaterialModule } from '@angular/material';
 
 // local imports
 import { throwIfAlreadyLoaded } from './module-import-guard';
@@ -18,6 +18,7 @@ import { HomeComponent } from './components/home/home.component';
 import { WelcomeBarComponent } from './components/welcome-bar/welcome-bar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TracknavComponent } from './components/tracknav/tracknav.component';
+import {PlayerModule} from "../player/player.module";
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { TracknavComponent } from './components/tracknav/tracknav.component';
     RouterModule,
     CommonModule,
     FormsModule,
+    PlayerModule,
     MaterialModule
   ],
   exports: [],

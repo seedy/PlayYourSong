@@ -15,6 +15,9 @@ md-sidenav-container {
         .tracknav-header {
           border-bottom: none;
         }
+        md-list-item {
+          color: black;
+        }
         .tracknav-open {
           display: none;
         }
@@ -24,6 +27,11 @@ md-sidenav-container {
       }
       .tracknav-closed {
         display: none;
+      }
+      md-list-item {
+        .track-title {
+          color: white;
+        }
       }
     }
     .tracknav-header {

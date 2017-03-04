@@ -6,20 +6,18 @@
           <md-icon>menu</md-icon>
         </button>
       </div>
-      <button md-mini-fab (click)="togglePlayer()" >
-        <md-icon>{{playing? 'pause': 'play_arrow'}}</md-icon>
-      </button>
       <button class="tracknav-open btn-right" md-icon-button (click)="toggle()">
         <md-icon>chevron_left</md-icon>
       </button>
     </div>
+    <pys-player-menu></pys-player-menu>
     <!-- TODO : Playlist component -->
     <md-list>
       <!-- TODO : Track component -->
       <md-list-item routerLink="{{track.path}}" *ngFor="let track of tracks">
         <a [ngClass]="{'current': track.selected}">
           <md-icon>{{track.thumbnail}}</md-icon>
-          <span class="tracknav-open">{{track.text}}</span>
+          <span class="track-title tracknav-open">{{track.text}}</span>
         </a>
       </md-list-item>
     </md-list>

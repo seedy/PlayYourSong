@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'pys-welcome-bar',
   templateUrl: './welcome-bar.component.html',
-  styleUrls: ['welcome-bar.component.scss']
+  styleUrls: ['./welcome-bar.component.scss']
 })
 export class WelcomeBarComponent implements OnInit {
   tiles = [

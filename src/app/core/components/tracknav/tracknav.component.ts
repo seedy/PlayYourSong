@@ -2,8 +2,8 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'pys-sidenav',
-  templateUrl: 'tracknav.component.html',
-  styleUrls: ['tracknav.component.scss']
+  templateUrl: './tracknav.component.html',
+  styleUrls: ['./tracknav.component.scss']
 })
 export class TracknavComponent implements OnInit {
   @Input() open : boolean;

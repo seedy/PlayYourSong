@@ -1,4 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+
 import {ButtonState} from "../../classes/button-state";
 import {CircularList} from "../../classes/circular-list";
 
@@ -26,12 +27,15 @@ export class MultistateButtonComponent implements OnInit {
       .forEach((btnState) => this.buttonStates.push(btnState));
   }
 
+  @Output() onStateChange = new EventEmitter<string>();
+
   toggleState(): void{
     this.state = this.buttonStates.next();
+    this.onStateChange.emit(this.state.id);
   }
 
-  private mapState(state: {tooltip?: string, icon?: string, themeColor?: string}): ButtonState{
-    return new ButtonState(state.tooltip, state.icon, state.themeColor);
+  private mapState(state: {id: string, tooltip?: string, icon?: string, themeColor?: string}): ButtonState{
+    return new ButtonState(state.id, state.tooltip, state.icon, state.themeColor);
   }
 
 }

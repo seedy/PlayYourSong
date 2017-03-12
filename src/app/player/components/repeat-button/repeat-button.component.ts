@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+
 
 @Component({
   selector: 'pys-repeat-button',
@@ -6,18 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repeat-button.component.scss']
 })
 export class RepeatButtonComponent implements OnInit {
-  replayModes = [
+  repeatModes = [
     {
+      id: 'repeat-none',
       tooltip: 'Toggle to repeat playlist',
       icon: 'repeat',
       themeColor: 'default'
     },
     {
+      id: 'repeat-list',
       tooltip: 'Toggle to repeat track',
       icon: 'repeat',
       themeColor: 'primary'
     },
     {
+      id: 'repeat-track',
       tooltip: 'Toggle not to repeat',
       icon: 'repeat_one',
       themeColor: 'primary'
@@ -28,6 +32,15 @@ export class RepeatButtonComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  @Output() onRepeatModeChanged = new EventEmitter<string>();
+
+  repeatModeChanged(id: string): void{
+    let mode = this.repeatModes.find((mode) => mode.id === id);
+    if(mode){
+      this.onRepeatModeChanged.emit(mode.id);
+    }
   }
 
 }

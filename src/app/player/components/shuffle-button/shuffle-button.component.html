@@ -1,0 +1,11 @@
+<div class="shuffle-wrap">
+  <button md-icon-button class="button-target" (click)="shuffle()" mdTooltip="{{tooltip}}">
+    <md-icon>shuffle</md-icon>
+  </button>
+  <button class="button-superscript" *ngIf="shuffles > 0" md-icon-button (click)="cancelShuffles()">
+    <md-icon>close</md-icon>
+  </button>
+  <button class="button-subscript" *ngIf="shuffles > 0" md-icon-button>
+    <span class="icon">{{shuffles}}</span>
+  </button>
+</div>

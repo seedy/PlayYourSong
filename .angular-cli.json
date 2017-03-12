@@ -20,6 +20,11 @@
       "styles": [
         "_theme.scss"
       ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "./app/core/styles"
+        ]
+      },
       "scripts": [
       ],
       "environmentSource": "environments/environment.ts",

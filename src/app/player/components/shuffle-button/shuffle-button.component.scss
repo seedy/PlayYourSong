@@ -1,0 +1,23 @@
+.shuffle-wrap {
+  display: inline-block;
+  position: relative;
+  padding: 5px 15px 5px 0;
+  .button-subscript, .button-superscript {
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    md-icon, .icon {
+      font-size: 10px;
+      height: 20px;
+      width: 20px;
+    }
+  }
+  .button-subscript {
+    bottom: 0;
+  }
+  .button-superscript {
+    top: 0;
+  }
+}

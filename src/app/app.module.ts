@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 // local imports
 import { CoreModule } from './core/core.module';
+import { PlayerModule } from './player/player.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     CoreModule,
+    PlayerModule,
     AppRoutingModule
   ],
   providers: [],

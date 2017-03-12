@@ -1,0 +1,8 @@
+<button *ngIf="state" md-icon-button
+  (click)="toggleState()"
+  [color]="state.themeColor"
+  mdTooltip="{{state.tooltip}}"
+  [mdTooltipPosition]="tooltipPosition"
+>
+  <md-icon>{{state.icon}}</md-icon>
+</button>

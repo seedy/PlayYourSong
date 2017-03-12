@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'pys-sidenav',
+  selector: 'pys-tracknav',
   templateUrl: './tracknav.component.html',
   styleUrls: ['./tracknav.component.scss']
 })
@@ -31,9 +31,4 @@ export class TracknavComponent implements OnInit {
   toggle() : void{
     this.open = !this.open;
   }
-
-  togglePlayer() : void{
-    this.playing = !this.playing;
-  }
-
 }

@@ -7,6 +7,8 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./repeat-button.component.scss']
 })
 export class RepeatButtonComponent implements OnInit {
+
+  @Output() onRepeatModeChanged = new EventEmitter<string>();
   repeatModes = [
     {
       id: 'repeat-none',
@@ -34,11 +36,9 @@ export class RepeatButtonComponent implements OnInit {
 
   }
 
-  @Output() onRepeatModeChanged = new EventEmitter<string>();
-
-  repeatModeChanged(id: string): void{
-    let mode = this.repeatModes.find((mode) => mode.id === id);
-    if(mode){
+  repeatModeChanged(id: string): void {
+    const mode = this.repeatModes.find((rmode) => rmode.id === id);
+    if (mode) {
       this.onRepeatModeChanged.emit(mode.id);
     }
   }

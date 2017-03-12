@@ -19,19 +19,24 @@ export class PlayerMenuComponent implements OnInit {
     this.playing = false;
   }
 
-  playPause():void {
+  playPause(): void {
     this.playing = !this.playing;
   }
 
-  notifyRepeatMode(mode: string): void{
+
+  notifyClearQueue(): void {
+    this.playlistControlService.clearQueueControlChange();
+  }
+
+  notifyRepeatMode(mode: string): void {
     this.playlistControlService.repeatModeControlChange(mode);
   }
 
-  notifyShuffle(): void{
+  notifyShuffle(): void {
     this.playlistControlService.shuffleControlChange(true);
   }
 
-  notifyShuffleCanceled(): void{
+  notifyShuffleCanceled(): void {
     this.playlistControlService.shuffleControlChange(false);
   }
 

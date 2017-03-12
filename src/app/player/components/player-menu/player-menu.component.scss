@@ -13,7 +13,12 @@ div {
   &.sub-menu {
     flex-direction: row;
     .menu-item {
+      flex: 1 1 auto;
+      color: $pys-accent-default;
+      .mat-icon {
+      }
     }
     border-bottom: 1px solid $pys-primary-default;
+    border-top: 1px solid $pys-accent-default;
   }
 }

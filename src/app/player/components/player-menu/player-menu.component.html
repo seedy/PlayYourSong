@@ -5,6 +5,7 @@
 </div>
 <div class="menu sub-menu" *ngIf="fullMode">
   <pys-clear-button class="menu-item" (onClearQueue)="notifyClearQueue()"></pys-clear-button>
+  <pys-save-button class="menu-item" (onSaveQueue)="notifySaveQueue()"></pys-save-button>
   <pys-repeat-button class="menu-item" (onRepeatModeChanged)="notifyRepeatMode($event)"></pys-repeat-button>
   <pys-shuffle-button class="menu-item" (onShuffle)="notifyShuffle()" (onShuffleCanceled)="notifyShuffleCanceled()"></pys-shuffle-button>
 </div>

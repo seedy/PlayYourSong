@@ -23,6 +23,9 @@ export class PlayerMenuComponent implements OnInit {
     this.playing = !this.playing;
   }
 
+  notifySaveQueue(): void {
+    this.playlistControlService.saveQueueControlChange();
+  }
 
   notifyClearQueue(): void {
     this.playlistControlService.clearQueueControlChange();

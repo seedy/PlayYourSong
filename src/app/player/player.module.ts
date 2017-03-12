@@ -12,6 +12,7 @@ import {TrackComponent} from "./components/track/track.component";
 import { RepeatButtonComponent } from './components/repeat-button/repeat-button.component';
 import { ShuffleButtonComponent } from './components/shuffle-button/shuffle-button.component';
 import { ClearButtonComponent } from './components/clear-button/clear-button.component';
+import { SaveButtonComponent } from './components/save-button/save-button.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { ClearButtonComponent } from './components/clear-button/clear-button.com
     RepeatButtonComponent,
     ShuffleButtonComponent,
     ClearButtonComponent,
+    SaveButtonComponent
   ],
   exports: [
     PlayerMenuComponent,

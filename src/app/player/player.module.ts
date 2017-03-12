@@ -10,6 +10,7 @@ import { PlayerMenuComponent } from './components/player-menu/player-menu.compon
 import {PlaylistComponent} from "./components/playlist/playlist.component";
 import {TrackComponent} from "./components/track/track.component";
 import { RepeatButtonComponent } from './components/repeat-button/repeat-button.component';
+import { ShuffleButtonComponent } from './components/shuffle-button/shuffle-button.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { RepeatButtonComponent } from './components/repeat-button/repeat-button.
     PlayerMenuComponent,
     PlaylistComponent,
     TrackComponent,
-    RepeatButtonComponent
+    RepeatButtonComponent,
+    ShuffleButtonComponent
   ],
   exports: [
     PlayerMenuComponent,

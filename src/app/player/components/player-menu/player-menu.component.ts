@@ -27,6 +27,12 @@ export class PlayerMenuComponent implements OnInit {
     this.playlistControlService.repeatModeControlChange(mode);
   }
 
+  notifyShuffle(): void{
+    this.playlistControlService.shuffleControlChange(true);
+  }
 
+  notifyShuffleCanceled(): void{
+    this.playlistControlService.shuffleControlChange(false);
+  }
 
 }

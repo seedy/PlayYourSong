@@ -5,7 +5,5 @@
 </div>
 <div>
   <pys-repeat-button (onRepeatModeChanged)="notifyRepeatMode($event)"></pys-repeat-button>
-  <button md-icon-button>
-    <md-icon>shuffle</md-icon>
-  </button>
+  <pys-shuffle-button (onShuffle)="notifyShuffle()" (onShuffleCanceled)="notifyShuffleCanceled()"></pys-shuffle-button>
 </div>

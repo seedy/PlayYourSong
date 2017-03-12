@@ -1,6 +1,11 @@
 <div>
-  <button md-icon-button (click)="playPause()">
+  <button md-fab (click)="playPause()">
     <md-icon>{{playing? 'pause': 'play_arrow'}}</md-icon>
   </button>
-  <pys-repeat-button></pys-repeat-button>
+</div>
+<div>
+  <pys-repeat-button (onRepeatModeChanged)="notifyRepeatMode($event)"></pys-repeat-button>
+  <button md-icon-button>
+    <md-icon>shuffle</md-icon>
+  </button>
 </div>

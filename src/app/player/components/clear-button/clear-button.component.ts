@@ -6,7 +6,6 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./clear-button.component.scss']
 })
 export class ClearButtonComponent implements OnInit {
-
   @Output() onClearQueue = new EventEmitter<void>();
 
   constructor() { }

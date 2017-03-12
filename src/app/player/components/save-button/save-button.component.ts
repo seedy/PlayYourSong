@@ -6,7 +6,7 @@ import {Component, OnInit, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./save-button.component.scss']
 })
 export class SaveButtonComponent implements OnInit {
-
+  tooltip = "Click to save current playlist";
   @Output() onSaveQueue = new EventEmitter<void>();
 
   constructor() { }

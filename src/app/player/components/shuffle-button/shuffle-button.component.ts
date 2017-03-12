@@ -6,6 +6,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./shuffle-button.component.scss']
 })
 export class ShuffleButtonComponent implements OnInit {
+  tooltip = "Click to shuffle playlist";
   shuffles = 0;
 
   constructor() {}

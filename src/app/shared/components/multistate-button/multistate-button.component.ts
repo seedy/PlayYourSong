@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output, ElementRef, AfterViewInit} from '@angular/core';
 
 import {ButtonState} from "../../classes/button-state";
 import {CircularList} from "../../classes/circular-list";
@@ -10,15 +10,21 @@ import {CircularList} from "../../classes/circular-list";
   templateUrl: 'multistate-button.component.html',
   styleUrls: ['multistate-button.component.scss']
 })
-export class MultistateButtonComponent implements OnInit {
-
+export class MultistateButtonComponent implements OnInit, AfterViewInit {
+  tooltipPosition = "below";
   state: ButtonState;
   private buttonStates = new CircularList<ButtonState>();
 
-  constructor() { }
+  constructor(private elRef: ElementRef) { }
 
   ngOnInit() {
     this.state = this.buttonStates.getSelected();
+  }
+
+  ngAfterViewInit() {
+    if(this.elRef.nativeElement.offsetLeft === 0){
+      this.tooltipPosition = "right";
+    }
   }
 
   @Input() set states(states: Object[]) {

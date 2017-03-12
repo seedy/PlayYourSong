@@ -1,1 +1,19 @@
 @import '_colors';
+
+div {
+  white-space: nowrap;
+}
+.menu{
+  display: flex;
+  align-items: center;
+  &.main-menu {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  &.sub-menu {
+    flex-direction: row;
+    .menu-item {
+    }
+    border-bottom: 1px solid $pys-primary-default;
+  }
+}

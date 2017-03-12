@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 import { PlaylistControlService } from '../../../shared/services/playlist-control/playlist-control.service';
 
@@ -10,7 +10,7 @@ import { PlaylistControlService } from '../../../shared/services/playlist-contro
 })
 export class PlayerMenuComponent implements OnInit {
   playing: boolean;
-
+  @Input() fullMode: boolean;
   constructor(private playlistControlService: PlaylistControlService) {
 
   }

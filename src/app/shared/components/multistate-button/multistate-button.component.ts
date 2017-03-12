@@ -10,8 +10,8 @@ import {CircularList} from "../../classes/circular-list";
   templateUrl: 'multistate-button.component.html',
   styleUrls: ['multistate-button.component.scss']
 })
-export class MultistateButtonComponent implements OnInit, AfterViewInit {
-  tooltipPosition = "below";
+export class MultistateButtonComponent implements OnInit{
+  @Input() tooltipPosition : string ;
   state: ButtonState;
   private buttonStates = new CircularList<ButtonState>();
 
@@ -19,12 +19,6 @@ export class MultistateButtonComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.state = this.buttonStates.getSelected();
-  }
-
-  ngAfterViewInit() {
-    if(this.elRef.nativeElement.offsetLeft === 0){
-      this.tooltipPosition = "right";
-    }
   }
 
   @Input() set states(states: Object[]) {

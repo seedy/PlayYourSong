@@ -1,9 +1,9 @@
-<div>
-  <button md-fab (click)="playPause()">
+<div class="menu main-menu">
+  <button md-mini-fab (click)="playPause()">
     <md-icon>{{playing? 'pause': 'play_arrow'}}</md-icon>
   </button>
 </div>
-<div>
-  <pys-repeat-button (onRepeatModeChanged)="notifyRepeatMode($event)"></pys-repeat-button>
-  <pys-shuffle-button (onShuffle)="notifyShuffle()" (onShuffleCanceled)="notifyShuffleCanceled()"></pys-shuffle-button>
+<div class="menu sub-menu" *ngIf="fullMode">
+  <pys-repeat-button class="menu-item" (onRepeatModeChanged)="notifyRepeatMode($event)"></pys-repeat-button>
+  <pys-shuffle-button class="menu-item" (onShuffle)="notifyShuffle()" (onShuffleCanceled)="notifyShuffleCanceled()"></pys-shuffle-button>
 </div>

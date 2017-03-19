@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+md-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  md-progress-bar {
+    &.inline-progress {
+      padding-left: 5em;
+      width: 10em;
+      display: inline-block;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/map";
 
+import { ErrorMessageService } from '../../../shared/services/error-message/error-message.service';
 import {Account} from "../../classes/account";
 
 @Component({
@@ -50,6 +51,7 @@ export class LoginComponent implements OnInit {
     if (!form) {
       return;
     }
+    this.errorMessageService.mapErrorMessages(form, data);
   }
 
 }

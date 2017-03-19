@@ -1,17 +1,55 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "../../services/login/login.service";
-import {Router} from "@angular/router";
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/map";
+
+import {Account} from "../../classes/account";
 
 @Component({
   selector: 'pys-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [ErrorMessageService]
 })
 export class LoginComponent implements OnInit {
-
-  constructor(public loginService: LoginService, public router: Router) { }
+  loginForm: FormGroup;
+  errorMessages: string[];
+  constructor(private fb: FormBuilder, private errorMessageService: ErrorMessageService) { }
 
   ngOnInit() {
+    this.errorMessages = [];
+    this.createForm();
+  }
+
+  login(): void {
+    // http request with form data
+  }
+
+  private createForm(): void {
+    this.loginForm = this.fb.group({
+      identifier: ['', [
+          Validators.required,
+          Validators.compose([Validators.pattern(Account.emailRegexp()), Validators.pattern(Account.usernameRegexp())])
+        ]
+      ],
+      password: ['', [
+          Validators.required,
+          Validators.minLength(8)
+        ]
+      ]
+    });
+
+    this.loginForm.valueChanges
+      .debounceTime(400)
+      .subscribe(data => this.onFormValueChanged(data));
+  }
+
+  private onFormValueChanged(data): void {
+    const form = this.loginForm;
+    if (!form) {
+      return;
+    }
   }
 
 }

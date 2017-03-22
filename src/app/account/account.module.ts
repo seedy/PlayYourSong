@@ -9,13 +9,15 @@ import { MaterialModule } from '@angular/material';
 import {AccountRoutingModule} from './account-routing.module';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    SharedModule
   ],
   declarations: [RegisterComponent, LoginComponent]
 })

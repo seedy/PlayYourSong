@@ -13,7 +13,7 @@ $mat-primary: mat-palette($mat-amber, A200, A100, A400);
 $mat-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$mat-warn:    mat-palette($mat-red, A200, A100, A400);
+$mat-warn:    mat-palette($mat-red, 200, A100, A400);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $mat-theme: mat-light-theme($mat-primary, $mat-accent, $mat-warn);

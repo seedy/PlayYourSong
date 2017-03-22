@@ -15,11 +15,11 @@ import {Account} from "../../classes/account";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  errorMessages: string[];
+  errorMessages: {};
   constructor(private fb: FormBuilder, private errorMessageService: ErrorMessageService) { }
 
   ngOnInit() {
-    this.errorMessages = [];
+    this.errorMessages = {};
     this.createForm();
   }
 
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       identifier: ['', [
           Validators.required,
-          Validators.compose([Validators.pattern(Account.emailRegexp()), Validators.pattern(Account.usernameRegexp())])
+          Validators.pattern(Account.usernameOrEmailRegexp())
         ]
       ],
       password: ['', [
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     if (!form) {
       return;
     }
-    this.errorMessageService.mapErrorMessages(form, data);
+    this.errorMessages = this.errorMessageService.mapErrorMessages(form, data);
   }
 
 }

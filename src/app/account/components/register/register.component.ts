@@ -2,22 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Account } from '../../classes/account';
+import {ErrorMessageService} from "../../../shared/services/error-message/error-message.service";
 
 @Component({
   selector: 'pys-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  providers: [ErrorMessageService]
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   usernameProgress: string;
-
-  constructor(private fb: FormBuilder) {
+  errorMessages: {};
+  constructor(private fb: FormBuilder, private errorMessageService: ErrorMessageService) {
   }
 
   ngOnInit() {
-    this.createForm();
+    this.errorMessages = {};
     this.usernameProgress = 'determinate';
+    this.createForm();
   }
 
   register(): void {
@@ -49,6 +52,17 @@ export class RegisterComponent implements OnInit {
         ]
       ]
     });
+
+    this.registerForm.valueChanges
+      .debounceTime(400)
+      .subscribe(data => this.onFormValueChanged(data));
   }
 
+  private onFormValueChanged(data): void {
+    const form = this.registerForm;
+    if (!form) {
+      return;
+    }
+    this.errorMessages = this.errorMessageService.mapErrorMessages(form, data);
+  }
 }

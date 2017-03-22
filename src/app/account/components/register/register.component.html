@@ -8,22 +8,25 @@
       <div>
         <md-input-container>
           <input mdInput type="text" placeholder="Username" class="form-control" formControlName="username" required >
-          <md-hint *ngIf="registerForm.get('username').invalid">{{registerForm.get('username').errors | json }}</md-hint>
         </md-input-container>
         <md-progress-bar class="inline-progress" [mode]="usernameProgress"></md-progress-bar>
+        <pys-error-message-list [errorMessages]="errorMessages['username']"></pys-error-message-list>
       </div>
       <div>
         <md-input-container>
           <input mdInput type="email" placeholder="Email" class="form-control" formControlName="email" required >
         </md-input-container>
+        <pys-error-message-list [errorMessages]="errorMessages['email']"></pys-error-message-list>
       </div>
       <div>
         <md-input-container>
           <input mdInput type="password" placeholder="Password" class="form-control" formControlName="password" required >
         </md-input-container>
+        <pys-error-message-list [errorMessages]="errorMessages['password']"></pys-error-message-list>
       </div>
       <div>
         <md-checkbox formControlName="terms" [required]="true" >I hereby accept the <a>terms of use</a> of the application</md-checkbox>
+        <pys-error-message-list [errorMessages]="errorMessages['terms']"></pys-error-message-list>
       </div>
     </md-card-content>
     <md-card-actions>

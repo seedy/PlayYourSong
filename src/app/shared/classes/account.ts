@@ -13,6 +13,22 @@ export class Account {
     return new RegExp(username.source + '|' + email.source);
   }
 
+  static passwordSpecialCharRegex(): RegExp {
+    return /\W/;
+  }
+
+  static passwordUpperCharRegex(): RegExp {
+    return /[A-Z]/;
+  }
+
+  static passwordLowerCharRegex(): RegExp {
+    return /[a-z]/;
+  }
+
+  static passwordNumberRegex(): RegExp {
+    return /\d/;
+  }
+
   constructor(
     public password: string,
     public username: string,

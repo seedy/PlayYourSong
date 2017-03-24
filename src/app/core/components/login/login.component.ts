@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/map";
-
 import { ErrorMessageService } from '../../../shared/services/error-message/error-message.service';
-import {Account} from "../../classes/account";
+import {Account} from "../../../shared/classes/account";
 
 @Component({
   selector: 'pys-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.component.scss'],
   providers: [ErrorMessageService]
 })
 export class LoginComponent implements OnInit {
@@ -35,8 +32,7 @@ export class LoginComponent implements OnInit {
         ]
       ],
       password: ['', [
-          Validators.required,
-          Validators.minLength(8)
+          Validators.required
         ]
       ]
     });

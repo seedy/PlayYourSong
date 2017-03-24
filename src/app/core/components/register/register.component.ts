@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Account } from '../../classes/account';
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/map";
+
+import { Account } from '../../../shared/classes/account';
 import {ErrorMessageService} from "../../../shared/services/error-message/error-message.service";
 
 @Component({
   selector: 'pys-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  templateUrl: 'register.component.html',
+  styleUrls: ['register.component.scss'],
   providers: [ErrorMessageService]
 })
 export class RegisterComponent implements OnInit {
@@ -34,7 +37,8 @@ export class RegisterComponent implements OnInit {
   private createForm(): void {
     this.registerForm = this.fb.group({
       username: ['', [
-          Validators.required
+          Validators.required,
+          Validators.pattern(Account.usernameRegexp())
         ]
       ],
       email: ['', [
@@ -45,7 +49,7 @@ export class RegisterComponent implements OnInit {
       password: ['', [
           Validators.required,
           Validators.minLength(8)
-        ]
+      ]
       ],
       terms: [false, [
           Validators.requiredTrue

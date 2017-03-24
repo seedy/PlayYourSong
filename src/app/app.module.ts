@@ -10,7 +10,6 @@ import { PlayerModule } from './player/player.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import {AccountModule} from './account/account.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import {AccountModule} from './account/account.module';
     FormsModule,
     HttpModule,
     CoreModule,
-    AccountModule,
     PlayerModule,
     AppRoutingModule
   ],

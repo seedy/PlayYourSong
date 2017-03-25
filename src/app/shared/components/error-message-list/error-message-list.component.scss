@@ -1,0 +1,12 @@
+@import "_colors.scss";
+md-list {
+  md-list-item {
+    .mat-list-item-content {
+      height: 40px;
+    }
+    [md-line] {
+      color: $pys-warn-default;
+      font-size: 10px;
+    }
+  }
+}

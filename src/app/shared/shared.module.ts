@@ -6,6 +6,7 @@ import 'hammerjs';
 import { MaterialModule } from '@angular/material';
 
 import { MultistateButtonComponent } from './components/multistate-button/multistate-button.component';
+import { ErrorMessageListComponent } from './components/error-message-list/error-message-list.component';
 
 @NgModule({
   imports: [
@@ -14,10 +15,12 @@ import { MultistateButtonComponent } from './components/multistate-button/multis
   ],
   declarations: [
     MultistateButtonComponent,
+    ErrorMessageListComponent,
   ],
   exports: [
     CommonModule,
     MultistateButtonComponent,
+    ErrorMessageListComponent
   ]
 })
 export class SharedModule { }

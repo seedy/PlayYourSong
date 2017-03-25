@@ -1,0 +1,25 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <md-card>
+    <md-card-header>
+      <md-card-title>Login</md-card-title>
+      <md-card-subtitle>PlayYourSong account</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <div class="pys-form-group">
+        <md-input-container>
+          <input mdInput type="text" placeholder="Username/Email" class="form-control" formControlName="identifier" required >
+        </md-input-container>
+        <pys-error-message-list [errorMessages]="errorMessages['identifier']"></pys-error-message-list>
+      </div>
+      <div class="pys-form-group">
+        <md-input-container>
+          <input mdInput type="password" placeholder="Password" class="form-control" formControlName="password" required >
+        </md-input-container>
+        <pys-error-message-list [errorMessages]="errorMessages['password']"></pys-error-message-list>
+      </div>
+    </md-card-content>
+    <md-card-actions>
+      <button type="submit" md-button [disabled]="loginForm.invalid" >Login</button>
+    </md-card-actions>
+  </md-card>
+</form>

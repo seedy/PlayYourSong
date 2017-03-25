@@ -1,15 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
   // 3rd-party dependencies imports
   import 'hammerjs';
   import { MaterialModule } from '@angular/material';
+  import 'rxjs/add/operator/debounceTime';
+  import 'rxjs/add/operator/map';
 
-// local imports
+/*****************
+ * LOCAL IMPORTS *
+ *****************/
+// guards
 import { throwIfAlreadyLoaded } from './module-import-guard';
+
+// modules
+import {PlayerModule} from '../player/player.module';
+
 
 // components
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
@@ -18,7 +27,9 @@ import { HomeComponent } from './components/home/home.component';
 import { WelcomeBarComponent } from './components/welcome-bar/welcome-bar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TracknavComponent } from './components/tracknav/tracknav.component';
-import {PlayerModule} from "../player/player.module";
+import {RegisterComponent} from './components/register/register.component';
+import {LoginComponent} from './components/login/login.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -26,7 +37,9 @@ import {PlayerModule} from "../player/player.module";
     RouterModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     PlayerModule,
+    SharedModule,
     MaterialModule
   ],
   exports: [],
@@ -36,7 +49,9 @@ import {PlayerModule} from "../player/player.module";
     HomeComponent,
     WelcomeBarComponent,
     NavbarComponent,
-    TracknavComponent
+    TracknavComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   providers: []
 })

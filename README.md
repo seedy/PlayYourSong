@@ -1,4 +1,3 @@
-[![Stories in Ready](https://badge.waffle.io/seedy/PlayYourSong.png?label=ready&title=Ready)](https://waffle.io/seedy/PlayYourSong)
 # PlayYourSong
 [![Build Status](https://travis-ci.org/seedy/PlayYourSong.svg?branch=master)](https://travis-ci.org/seedy/PlayYourSong)
 [![Coverage Status](https://coveralls.io/repos/github/seedy/PlayYourSong/badge.svg?branch=master)](https://coveralls.io/github/seedy/PlayYourSong?branch=master)

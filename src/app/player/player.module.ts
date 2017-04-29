@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 // 3rd-party dependencies imports
 import 'hammerjs';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { PlayerMenuComponent } from './components/player-menu/player-menu.component';

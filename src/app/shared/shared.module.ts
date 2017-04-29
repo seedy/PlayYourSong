@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 // 3rd-party dependencies imports
 import 'hammerjs';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule } from '../material/material.module';
 
 import { MultistateButtonComponent } from './components/multistate-button/multistate-button.component';
 import { ErrorMessageListComponent } from './components/error-message-list/error-message-list.component';

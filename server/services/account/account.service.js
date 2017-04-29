@@ -2,8 +2,8 @@ const config = require('../../config.json');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const Q = require('q');
-const mongo = require('mongodb').MongoClient;
-const db = mongo.connect(config.connectionString, { native_parser: true });
+const mongo = require('mongoskin');
+const db = mongo.db(config.connectionString, { native_parser: true });
 db.bind('users');
 
 const service = {};

@@ -23,10 +23,10 @@ export class LoginService {
   login(credentials): Observable<any> {
     const url = this.endpoint + '/login';
     const json = {
-      username: credentials.username,
+      identifier: credentials.identifier,
       password: credentials.password
     };
-    return this.http.post(url, json)
+    return this.http.post(url, JSON.stringify(json))
       .map((response) => response.json())
       .map((response) => {
         if (response.success) {

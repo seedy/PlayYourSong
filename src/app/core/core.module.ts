@@ -18,8 +18,9 @@ import { RouterModule } from '@angular/router';
 // guards
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
-// interfaces
-import {APP_CONFIG, PYS_CONFIG} from './app-config';
+// providers
+import {pysConfigProvider} from './config/pys-config';
+import {pysRequestOptionsProvider} from './config/pys-request-options';
 
 // modules
 import { MaterialModule } from '../material/material.module';
@@ -60,10 +61,8 @@ import {SharedModule} from '../shared/shared.module';
     RegisterComponent
   ],
   providers: [
-    {
-      provide: APP_CONFIG,
-      useValue: PYS_CONFIG
-    }
+    pysConfigProvider,
+    pysRequestOptionsProvider
   ]
 })
 

@@ -1,10 +1,10 @@
 import {Injectable, Inject} from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { tokenNotExpired } from 'angular2-jwt';
-import {APP_CONFIG, AppConfig} from '../../../core/app-config';
+import {APP_CONFIG, AppConfig} from '../../../core/config/pys-config';
 
 @Injectable()
 export class LoginService {

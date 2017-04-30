@@ -19,10 +19,15 @@ service.remove = remove;
 
 module.exports = service;
 
-function authenticate(username, password) {
+function authenticate(identifier, password) {
   const deferred = Q.defer();
 
-  db.users.findOne({ username: username }, function (err, user) {
+  db.users.findOne(
+    { $or: [
+      {username: identifier},
+      {email: identifier}
+      ]
+    }, function (err, user) {
     if (err){
       deferred.reject(errorHelper.generateError(err.name + ': ' + err.message, 500));
     }
@@ -32,8 +37,7 @@ function authenticate(username, password) {
       deferred.resolve({
         _id: user._id,
         username: user.username,
-        firstName: user.firstName,
-        lastName: user.lastName,
+        email: user.email,
         token: jwt.sign({ sub: user._id }, config.secret)
       });
     } else {
@@ -85,13 +89,21 @@ function create(userParam) {
 
   // validation
   db.users.findOne(
-    { username: userParam.username },
+    { $or: [
+      {username: userParam.username},
+      {email: userParam.email}
+    ]
+    },
     function (err, user) {
       if (err) deferred.reject(errorHelper.generateError(err.name + ': ' + err.message, 500));
 
       if (user) {
-        // username already exists
-        deferred.reject(errorHelper.generateError('Username "' + userParam.username + '" is already taken', 409));
+        // user already exists
+        let message = 'User with ';
+        if(user.username === userParam.username) message += 'username "'+ userParam.username + '" ';
+        if(user.email === userParam.email) message += 'email "' + userParam.email + '" ';
+        message += 'already exists';
+        deferred.reject(errorHelper.generateError(message, 409));
       } else {
         createUser();
       }
@@ -144,9 +156,8 @@ function update(_id, userParam) {
   function updateUser() {
     // fields to update
     const set = {
-      firstName: userParam.firstName,
-      lastName: userParam.lastName,
       username: userParam.username,
+      email: userParam.email
     };
 
     // update password if it was entered

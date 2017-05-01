@@ -9,7 +9,7 @@ import {LoginService} from '../../../shared/services/login/login.service';
   selector: 'pys-login',
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.scss'],
-  providers: [ErrorMessageService, LoginService]
+  providers: [ErrorMessageService]
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;

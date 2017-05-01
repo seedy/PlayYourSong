@@ -8,8 +8,6 @@ import { RouterModule } from '@angular/router';
   import 'hammerjs';
   import 'rxjs/add/operator/debounceTime';
   import 'rxjs/add/operator/map';
-  import { Http, RequestOptions } from '@angular/http';
-  import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 
 /*****************
@@ -19,8 +17,13 @@ import { RouterModule } from '@angular/router';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
 // providers
-import {pysConfigProvider} from './config/pys-config';
-import {pysRequestOptionsProvider} from './config/pys-request-options';
+import {pysConfigProvider} from './config/pysConfig';
+import {pysRequestOptionsProvider} from './config/pysHttpRequestOptions';
+import {pysAuthHttpFactoryProvider} from './config/pysAuthHttp.service';
+
+// services
+import {LoginService} from '../shared/services/login/login.service';
+import {StorageService} from '../shared/services/storage/storage.service';
 
 // modules
 import { MaterialModule } from '../material/material.module';
@@ -62,7 +65,10 @@ import {SharedModule} from '../shared/shared.module';
   ],
   providers: [
     pysConfigProvider,
-    pysRequestOptionsProvider
+    pysRequestOptionsProvider,
+    pysAuthHttpFactoryProvider,
+    LoginService,
+    StorageService
   ]
 })
 

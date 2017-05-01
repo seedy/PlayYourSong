@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseRequestOptions, RequestOptions } from '@angular/http';
 
 @Injectable()
-export class PysRequestOptions extends BaseRequestOptions {
+export class PysHttpRequestOptions extends BaseRequestOptions {
 
   constructor() {
     super();
@@ -12,4 +12,4 @@ export class PysRequestOptions extends BaseRequestOptions {
   }
 }
 
-export const pysRequestOptionsProvider = { provide: RequestOptions, useClass: PysRequestOptions };
+export const pysRequestOptionsProvider = { provide: RequestOptions, useClass: PysHttpRequestOptions };

@@ -12,7 +12,7 @@ import {LoginService} from '../../../shared/services/login/login.service';
   selector: 'pys-register',
   templateUrl: 'register.component.html',
   styleUrls: ['register.component.scss'],
-  providers: [ErrorMessageService, LoginService]
+  providers: [ErrorMessageService]
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;

@@ -23,6 +23,7 @@ import {pysAuthHttpFactoryProvider} from './config/pysAuthHttp.service';
 
 // services
 import {LoginService} from '../shared/services/login/login.service';
+import {AccountService} from '../shared/services/account/account.service';
 import {StorageService} from '../shared/services/storage/storage.service';
 
 // modules
@@ -68,6 +69,7 @@ import {SharedModule} from '../shared/shared.module';
     pysRequestOptionsProvider,
     pysAuthHttpFactoryProvider,
     LoginService,
+    AccountService,
     StorageService
   ]
 })

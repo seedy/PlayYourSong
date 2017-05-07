@@ -14,7 +14,12 @@ import {LoginService} from '../../../shared/services/login/login.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessages: {};
-  constructor(private fb: FormBuilder, private errorMessageService: ErrorMessageService, private loginService: LoginService) { }
+  constructor(
+    private fb: FormBuilder,
+    private errorMessageService: ErrorMessageService,
+    private loginService: LoginService,
+    private accountService: AccountService
+  ) { }
 
   ngOnInit() {
     this.errorMessages = {};

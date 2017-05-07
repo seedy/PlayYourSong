@@ -37,11 +37,11 @@ export class LoginService {
     return this.http.post(url, JSON.stringify(json))
       .map((response) => response.json())
       .map((response) => {
-        if (response.success) {
+        if (response.token) {
           this.storage.storeKey('token', response.token);
         }
 
-        return response.success;
+        return response;
       });
   }
 

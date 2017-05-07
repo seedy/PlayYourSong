@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 import { ErrorMessageService } from '../../../shared/services/error-message/error-message.service';
-import {Account} from "../../../shared/classes/account";
+import {Account} from '../../../shared/classes/account';
 import {LoginService} from '../../../shared/services/login/login.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private errorMessageService: ErrorMessageService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -33,7 +35,7 @@ export class LoginComponent implements OnInit {
     };
     this.loginService.login(credentials).subscribe((result) => {
       if (result) {
-        console.log("OK");
+        return this.router.navigate(['']);
       }
     });
   }

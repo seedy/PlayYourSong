@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Router} from '@angular/router';
 
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/map";
@@ -18,7 +19,12 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   usernameProgress: string;
   errorMessages: {};
-  constructor(private fb: FormBuilder, private errorMessageService: ErrorMessageService, private loginService: LoginService) {
+  constructor(
+    private fb: FormBuilder,
+    private errorMessageService: ErrorMessageService,
+    private loginService: LoginService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -36,7 +42,7 @@ export class RegisterComponent implements OnInit {
     };
     this.loginService.register(credentials).subscribe((result) => {
       if (result) {
-        console.log("OK");
+        return this.router.navigate(['']);
       }
     });
   }

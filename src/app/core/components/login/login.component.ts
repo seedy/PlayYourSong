@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private errorMessageService: ErrorMessageService,
-    private loginService: LoginService,
-    private accountService: AccountService
+    private loginService: LoginService
   ) { }
 
   ngOnInit() {

@@ -7,6 +7,7 @@ import { JwtHelper } from 'angular2-jwt';
 
 import {APP_CONFIG, AppConfig} from '../../../core/config/pysConfig';
 import {StorageService} from '../storage/storage.service';
+import {ErrorMessageService} from '../error-message/error-message.service';
 
 
 @Injectable()
@@ -16,7 +17,12 @@ export class LoginService {
   redirectUrl: string;
   jwtHelper: JwtHelper = new JwtHelper();
 
-  constructor(private http: Http, @Inject(APP_CONFIG) config: AppConfig, public storage: StorageService) {
+  constructor(
+    private http: Http,
+    @Inject(APP_CONFIG) config: AppConfig,
+    public storage: StorageService,
+    public errorMessage: ErrorMessageService
+  ) {
     this.endpoint = config.apiEndpoint + '/account';
   }
 
@@ -42,7 +48,8 @@ export class LoginService {
         }
 
         return response;
-      });
+      })
+      .catch((err, caught) => this.errorMessage.handleError(err, caught, true));
   }
 
   register(credentials): Observable<any> {
@@ -53,14 +60,15 @@ export class LoginService {
       password: credentials.password
     };
     return this.http.post(url, JSON.stringify(json))
-      .map((response) => response.json())
-      .map((response) => {
-        if (response.success) {
-          this.storage.storeKey('token', response.token);
-        }
+    .map((response) => response.json())
+    .map((response) => {
+      if (response.token) {
+        this.storage.storeKey('token', response.token);
+      }
 
-        return response.success;
-      });
+      return response;
+    })
+    .catch((err, caught) => this.errorMessage.handleError(err, caught, true));
   }
 
   logout(): void {

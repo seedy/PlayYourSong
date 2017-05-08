@@ -1,9 +1,27 @@
 import { Injectable } from '@angular/core';
+import {Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import {MdSnackBar} from '@angular/material';
 
 @Injectable()
 export class ErrorMessageService {
 
-  constructor() { }
+  constructor(public snackBar: MdSnackBar) { }
+
+  handleError(error: Response | any, caught: Observable<any>, activateSnackBar?: boolean): Observable<any> {
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || 'Unknown';
+      const err = body.error || JSON.stringify(body);
+      errMsg = '[' + error.status + '] - ' + error.statusText + ' : ' + err;
+    } else {
+      errMsg = error.message || error.toString();
+    }
+    if (activateSnackBar) {
+      this.snackMessage(errMsg);
+    }
+    return Observable.throw(errMsg);
+  }
 
   mapErrorMessages(form, data): {} {
     return Object.keys(data)
@@ -55,5 +73,11 @@ export class ErrorMessageService {
 
   private getPatternMessage(key: string, errorObject: {actualValue: string, requiredPattern: string}): string {
     return 'Field ' + key + ' does not respect the expected pattern';
+  }
+
+  private snackMessage(message) {
+    this.snackBar.open(message, 'clear', {
+      duration: 3000
+    });
   }
 }

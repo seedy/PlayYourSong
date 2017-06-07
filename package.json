@@ -5,7 +5,8 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "serve:front": "ng serve",
+    "serve:back": "node server",
     "test": "ng test --single-run --code-coverage",
     "test:watch": "ng test",
     "lint": "ng lint",

@@ -11,9 +11,14 @@ export class ErrorMessageService {
   handleError(error: Response | any, caught: Observable<any>, activateSnackBar?: boolean): Observable<any> {
     let errMsg: string;
     if (error instanceof Response) {
-      const body = error.json() || 'Unknown';
-      const err = body.error || JSON.stringify(body);
-      errMsg = '[' + error.status + '] - ' + error.statusText + ' : ' + err;
+      let body;
+      try {
+        body = error.json();
+      } catch (err) {
+        body = error.text();
+      }
+      body = body || 'Unknown';
+      errMsg = '[' + error.status + '] - ' + error.statusText + ' : ' + body;
     } else {
       errMsg = error.message || error.toString();
     }

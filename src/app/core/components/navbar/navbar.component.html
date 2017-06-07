@@ -19,9 +19,17 @@
       <md-icon>fingerprint</md-icon>
       <span>Register</span>
     </a>
-    <a md-menu-item [disabled]="isLoggedIn" routerLink="/login" routerLinkActive="active">
+    <a md-menu-item *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">
       <md-icon>account_circle</md-icon>
-      <span>Log in apps</span>
+      <span>Connect</span>
     </a>
+    <a md-menu-item *ngIf="isLoggedIn" (click)="logout()">
+      <md-icon>exit_to_app</md-icon>
+      <span>Logout</span>
+    </a>
+    <button md-menu-item (click)="checkToken()">
+      <md-icon>network_check</md-icon>
+      <span>Token</span>
+    </button>
   </md-menu>
 </md-toolbar>

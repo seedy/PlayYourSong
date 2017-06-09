@@ -1,5 +1,6 @@
 import {Component, OnInit, Output, EventEmitter, AfterViewInit} from '@angular/core';
 import {LoginService} from '../../../shared/services/login/login.service';
+import {SearchService} from '../../../youtube/services/search/search.service';
 
 @Component({
   selector: 'pys-navbar',
@@ -9,11 +10,15 @@ import {LoginService} from '../../../shared/services/login/login.service';
 export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   search = '';
-  constructor(public loginService: LoginService) {
+  constructor(public loginService: LoginService, public searchService: SearchService) {
   }
 
   ngOnInit() {
     this.initLoggedIn();
+  }
+
+  query(): void {
+    this.searchService.queryVideo(this.search).subscribe();
   }
 
   checkToken(): void {

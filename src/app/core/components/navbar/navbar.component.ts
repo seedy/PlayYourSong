@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter, AfterViewInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoginService} from '../../../shared/services/login/login.service';
 import {SearchHelperService} from '../../services/searchHelper/searchHelper.service';
 

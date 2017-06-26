@@ -1,7 +1,13 @@
-import { NgModule } from '@angular/core';
+import {NgModule, APP_INITIALIZER} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// config
 import {pysYoutubeConfigProvider} from './config/youtubeConfig';
+
+// services
+import {SearchService} from './services/search/search.service';
+import {SearchHelperService} from '../core/services/searchHelper/searchHelper.service';
+
 
 @NgModule({
   imports: [
@@ -9,7 +15,15 @@ import {pysYoutubeConfigProvider} from './config/youtubeConfig';
   ],
   declarations: [],
   providers: [
-    pysYoutubeConfigProvider
+    pysYoutubeConfigProvider,
+    SearchService,
+    SearchHelperService
   ]
 })
-export class YoutubeModule { }
+export class YoutubeModule {
+
+  constructor( youtubeSearch: SearchService ) {
+    youtubeSearch.activate();
+  }
+
+}

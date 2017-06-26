@@ -23,8 +23,8 @@ import {pysAuthHttpFactoryProvider} from './config/pysAuthHttp.service';
 
 // services
 import {LoginService} from '../shared/services/login/login.service';
-import {SearchService} from '../youtube/services/search/search.service';
 import {StorageService} from '../shared/services/storage/storage.service';
+import {SearchHelperService} from './services/searchHelper/searchHelper.service';
 
 // modules
 import { MaterialModule } from '../material/material.module';
@@ -71,7 +71,7 @@ import {LoginComponent} from './components/login/login.component';
     pysRequestOptionsProvider,
     pysAuthHttpFactoryProvider,
     LoginService,
-    SearchService,
+    SearchHelperService,
     StorageService
   ]
 })

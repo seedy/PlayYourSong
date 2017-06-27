@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import {pysYoutubeConfigProvider} from './config/youtubeConfig';
 
 // services
-import {SearchService} from './services/search/search.service';
+import {YoutubeSearchService} from './services/youtubeSearch/youtubeSearch.service';
 import {SearchHelperService} from '../core/services/searchHelper/searchHelper.service';
 
 
@@ -16,13 +16,13 @@ import {SearchHelperService} from '../core/services/searchHelper/searchHelper.se
   declarations: [],
   providers: [
     pysYoutubeConfigProvider,
-    SearchService,
+    YoutubeSearchService,
     SearchHelperService
   ]
 })
 export class YoutubeModule {
 
-  constructor( youtubeSearch: SearchService ) {
+  constructor( youtubeSearch: YoutubeSearchService ) {
     youtubeSearch.activate();
   }
 

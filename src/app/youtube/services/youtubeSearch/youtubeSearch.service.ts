@@ -8,7 +8,7 @@ import {YOUTUBE_CONFIG, YoutubeConfig} from '../../config/youtubeConfig';
 import {SearchHelperService} from '../../../core/services/searchHelper/searchHelper.service';
 
 @Injectable()
-export class SearchService {
+export class YoutubeSearchService {
 
   endpoint: string;
 

@@ -20,7 +20,6 @@
     "@angular/core": "^4.*",
     "@angular/forms": "^4.*",
     "@angular/http": "^4.*",
-    "@angular/material": "^2.0.0-beta.3",
     "@angular/platform-browser": "^4.*",
     "@angular/platform-browser-dynamic": "^4.*",
     "@angular/router": "^4.*",
@@ -39,8 +38,10 @@
     "zone.js": "^0.8.*"
   },
   "devDependencies": {
+    "@angular/cdk": "^2.0.0-beta.8",
     "@angular/cli": "^1.0.0-rc.0",
     "@angular/compiler-cli": "^4.*",
+    "@angular/material": "^2.0.0-beta.8",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0-beta.4",

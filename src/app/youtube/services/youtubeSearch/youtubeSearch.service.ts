@@ -10,6 +10,7 @@ import {SearchHelperService} from '../../../core/services/searchHelper/searchHel
 @Injectable()
 export class YoutubeSearchService {
 
+  name = 'Youtube';
   endpoint: string;
 
   constructor(
@@ -22,7 +23,7 @@ export class YoutubeSearchService {
   }
 
   activate(): void {
-    this.searchHelper.register(this, this.queryVideo);
+    this.searchHelper.register(this.name, this, this.queryVideo);
   }
 
   /**

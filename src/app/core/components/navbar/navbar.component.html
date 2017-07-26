@@ -4,6 +4,11 @@
     <span>PlayYourSong</span>
   </button>
   <span class="search-box">
+    <md-select [(ngModel)]="activeServices" multiple (change)="onChange()">
+      <md-option *ngFor="let service of services" [value]="service">
+        <span>{{service.name}}</span>
+      </md-option>
+    </md-select>
     <md-input-container class="search-sm" [dividerColor]="'accent'" [floatPlaceholder]="'always'">
       <input type="search" mdInput placeholder="Search" [(ngModel)]="search" />
     </md-input-container>

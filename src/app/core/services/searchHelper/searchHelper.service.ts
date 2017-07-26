@@ -1,21 +1,39 @@
 import {Injectable} from '@angular/core';
 
+import {Searchable} from '../../../shared/classes/searchable';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class SearchHelperService {
 
-  services = [];
   searches: string[] = [];
+  private services: Searchable[] = [];
 
   constructor() { }
 
-  register(service: any, fn: Function): void {
-    this.services.push({service: service, query: fn});
+  register(name: string, service: any, fn: Function): void {
+    const searchable = new Searchable(
+      name,
+      service.constructor.name,
+      service,
+      fn,
+      false
+    );
+    this.services.push(searchable);
   }
 
   query(text: string): void {
     this.searches.push(text);
-    this.services.forEach((service) => service.query.call(service.service, text).subscribe());
+    this.services
+      .forEach((service) => {
+        if (service.active) {
+          service.query.call(service.service, text).subscribe()
+        }
+      });
+  }
+
+  getServices(): Searchable[] {
+    return this.services;
   }
 
 }

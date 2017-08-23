@@ -1,0 +1,11 @@
+<section class="result-container">
+  <md-tab-group>
+    <md-tab *ngFor="let tab of tabs" >
+      <span md-tab-label>
+        <span>{{tab.label}}</span>
+        <md-icon (click)="close(tab)" >close</md-icon>
+      </span>
+      <p>mock youtube results</p>
+    </md-tab>
+  </md-tab-group>
+</section>

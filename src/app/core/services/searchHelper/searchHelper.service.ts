@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 import {Searchable} from '../../../shared/classes/searchable';
-import {ResultHelperService} from '../resultHelper/resultHelper.service';
+import {ResultHelperService} from '../resultHelper/result-helper.service';
 
 @Injectable()
 export class SearchHelperService {

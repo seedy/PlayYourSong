@@ -5,6 +5,7 @@ import {HomeComponent} from './core/components/home/home.component';
 import {WelcomeBarComponent} from './core/components/welcome-bar/welcome-bar.component';
 import {RegisterComponent} from './core/components/register/register.component';
 import {LoginComponent} from './core/components/login/login.component';
+import {ResultListComponent} from './core/components/result-list/result-list.component';
 
 const appRoutes: Routes = [
   {
@@ -22,6 +23,10 @@ const appRoutes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'search',
+        component: ResultListComponent
       }
     ]
   },

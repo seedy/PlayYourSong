@@ -41,6 +41,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TracknavComponent } from './components/tracknav/tracknav.component';
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
+import { ResultListComponent } from './components/result-list/result-list.component';
+import {ResultHelperService} from './services/resultHelper/result-helper.service';
 
 @NgModule({
   imports: [

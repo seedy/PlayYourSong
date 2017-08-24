@@ -1,12 +1,12 @@
 <md-sidenav-container>
   <md-sidenav  mode="side" [opened]="open" (close)="onTracknavClosed()">
-    <div class="tracknav-header">
+    <div class="tracknav-header" fxLayout="column" fxLayoutAlign="center start">
       <div class="tracknav-closed">
         <button md-icon-button (click)="toggle()">
           <md-icon>menu</md-icon>
         </button>
       </div>
-      <button class="tracknav-open btn-right" md-icon-button (click)="toggle()">
+      <button class="tracknav-open btn-inversed" fxFlexAlign="end" md-icon-button (click)="toggle()">
         <md-icon>chevron_left</md-icon>
       </button>
     </div>

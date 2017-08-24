@@ -1,21 +1,21 @@
-<md-toolbar color="primary">
-  <button class="title" md-button>
+<nav fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+  <button class="title" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" md-button fxFlex="nogrow">
     <md-icon>home</md-icon>
     <span>PlayYourSong</span>
   </button>
-  <span class="search-box">
-    <md-select class="search-menu" [(ngModel)]="activeServices" multiple (change)="onChange()">
+  <div fxFlex="grow" class="search-box" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+    <md-select placeholder="Sites" fxFlex="nogrow" class="search-menu" [(ngModel)]="activeServices" multiple (change)="onChange()">
       <md-option *ngFor="let service of services" [value]="service">
         <span>{{service.name}}</span>
       </md-option>
     </md-select>
-    <md-input-container class="search-sm" [dividerColor]="'accent'" [floatPlaceholder]="'always'">
+    <md-input-container fxFlex="grow" class="search-sm" [floatPlaceholder]="'never'">
       <input type="search" mdInput placeholder="Search" [(ngModel)]="search" />
     </md-input-container>
     <button (click)="query()" md-icon-button class="search-sm">
       <md-icon>search</md-icon>
     </button>
-  </span>
+  </div>
   <button md-icon-button [mdMenuTriggerFor]="menu">
     <md-icon>more_vert</md-icon>
   </button>
@@ -37,4 +37,4 @@
       <span>Token</span>
     </button>
   </md-menu>
-</md-toolbar>
+</nav>

@@ -6,6 +6,7 @@ import 'hammerjs';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 
+// local imports
 import { PlayerMenuComponent } from './components/player-menu/player-menu.component';
 import {PlaylistComponent} from "./components/playlist/playlist.component";
 import {TrackComponent} from "./components/track/track.component";

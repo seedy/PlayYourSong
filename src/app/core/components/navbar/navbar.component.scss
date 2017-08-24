@@ -1,33 +1,27 @@
-md-toolbar {
+@import "colors";
+nav {
   padding-left: 60px;
+  height: 80px;
+  border-bottom: 1px solid $pys-primary-default;
   .search-box {
-    padding: 0 16px;
-    height: 48px;
-    display: flex;
-    flex: 3 1 auto;
     & > .search-menu {
-      padding-top: 4px;
+      margin-bottom: 5px;
     }
     & > .mat-input-container {
-      $posCorrection: 10px;
-      padding: 4px 4px 0 8px;
-      width: 100%;
-      height: calc(100% - #{$posCorrection});
-      position: relative;
-      top: -$posCorrection;
     }
 
     & > .search-sm {
-      font-size: 0.8em;
     }
     button.search-sm {
-      margin: 4px;
       md-icon {
         font-size: 14px;
       }
     }
   }
   .title {
-    margin: 0 16px;
+    min-width: initial;
+    &.active {
+      background-color: $pys-primary-default;
+    }
   }
 }

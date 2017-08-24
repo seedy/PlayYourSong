@@ -1,9 +1,10 @@
 @import "_colors";
 
 $sidenav-closed-width: 54px;
-
+$user-agent-margin: 8px;
 md-sidenav-container {
   width: 100%;
+  min-height: calc(100vh - 2 * #{$user-agent-margin});
   height: 100%;
   margin: 0;
   md-sidenav {
@@ -59,11 +60,10 @@ md-sidenav-container {
       @media (max-width: 960px) and (orientation: landscape){
         min-height: 48px;
       }
-      min-height: 64px;
+      min-height: 80px;
       border-bottom: 1px solid $pys-primary-default;
 
-      .btn-right {
-        float: right;
+      .btn-inversed {
         color: $pys-primary-default;
       }
     }

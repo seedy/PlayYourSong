@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
 import {LoginService} from '../../../shared/services/login/login.service';
 import {SearchHelperService} from '../../services/searchHelper/searchHelper.service';
 import {Searchable} from '../../../shared/classes/searchable';
@@ -14,7 +16,7 @@ export class NavbarComponent implements OnInit {
   activeServices: Searchable[] = [];
   services: Searchable[] = [];
 
-  constructor(public loginService: LoginService, public searchHelper: SearchHelperService) {
+  constructor(private router: Router,public loginService: LoginService, public searchHelper: SearchHelperService) {
   }
 
   ngOnInit() {
@@ -27,6 +29,7 @@ export class NavbarComponent implements OnInit {
   }
 
   query(): void {
+    this.router.navigate(['/search']);
     this.searchHelper.query(this.search);
   }
 

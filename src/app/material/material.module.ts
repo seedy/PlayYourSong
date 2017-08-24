@@ -6,7 +6,7 @@ import {
   MdChipsModule, MdDialogModule, MdIconModule, MdInputModule, MdLineModule, MdListModule,
   MdMenuModule, MdOptionModule, MdRadioModule, MdSelectModule,
   MdSidenavModule, MdSliderModule, MdGridListModule, MdProgressSpinnerModule, MdTooltipModule,
-  MdToolbarModule, MdProgressBarModule, MdSnackBarModule
+  MdToolbarModule, MdProgressBarModule, MdSnackBarModule, MdTabsModule, MdPaginatorModule
 } from '@angular/material';
 
 @NgModule({
@@ -16,14 +16,14 @@ import {
     MdChipsModule, MdDialogModule, MdIconModule, MdInputModule, MdLineModule, MdListModule,
     MdMenuModule, MdOptionModule, MdRadioModule, MdSelectModule,
     MdSidenavModule, MdSliderModule, MdGridListModule, MdProgressSpinnerModule, MdTooltipModule,
-    MdToolbarModule, MdProgressBarModule, MdSnackBarModule
+    MdToolbarModule, MdProgressBarModule, MdSnackBarModule, MdTabsModule, MdPaginatorModule
   ],
   exports: [
     MdAutocompleteModule, MdButtonModule, MdCardModule, MdCheckboxModule,
     MdChipsModule, MdDialogModule, MdIconModule, MdInputModule, MdLineModule, MdListModule,
     MdMenuModule, MdOptionModule, MdRadioModule, MdSelectModule,
     MdSidenavModule, MdSliderModule, MdGridListModule, MdProgressSpinnerModule, MdTooltipModule,
-    MdToolbarModule, MdProgressBarModule, MdSnackBarModule
+    MdToolbarModule, MdProgressBarModule, MdSnackBarModule, MdTabsModule, MdPaginatorModule
   ],
   declarations: []
 })

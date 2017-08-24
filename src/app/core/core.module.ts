@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-  // 3rd-party dependencies imports
-  import 'hammerjs';
-  import 'rxjs/add/operator/debounceTime';
-  import 'rxjs/add/operator/map';
-
+// 3rd-party dependencies imports
+import 'hammerjs';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 /*****************
  * LOCAL IMPORTS *
@@ -28,7 +28,6 @@ import {SearchHelperService} from './services/searchHelper/searchHelper.service'
 
 // modules
 import { MaterialModule } from '../material/material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import {PlayerModule} from '../player/player.module';
 import {SharedModule} from '../shared/shared.module';
 import {YoutubeModule} from '../youtube/youtube.module';

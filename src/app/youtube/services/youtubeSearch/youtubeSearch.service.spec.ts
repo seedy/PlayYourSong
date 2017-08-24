@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SearchService } from './youtubeSearch.service';
+import { YoutubeSearchService } from './youtubeSearch.service';
 
-describe('SearchService', () => {
+describe('YoutubeSearchService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SearchService]
+      providers: [YoutubeSearchService]
     });
   });
 
-  it('should ...', inject([SearchService], (service: SearchService) => {
+  it('should ...', inject([YoutubeSearchService], (service: YoutubeSearchService) => {
     expect(service).toBeTruthy();
   }));
 });

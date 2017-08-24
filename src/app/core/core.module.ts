@@ -24,10 +24,13 @@ import {pysAuthHttpFactoryProvider} from './config/pysAuthHttp.service';
 // services
 import {LoginService} from '../shared/services/login/login.service';
 import {StorageService} from '../shared/services/storage/storage.service';
+import {SearchHelperService} from './services/searchHelper/searchHelper.service';
 
 // modules
 import { MaterialModule } from '../material/material.module';
 import {PlayerModule} from '../player/player.module';
+import {SharedModule} from '../shared/shared.module';
+import {YoutubeModule} from '../youtube/youtube.module';
 
 // components
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
@@ -38,7 +41,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { TracknavComponent } from './components/tracknav/tracknav.component';
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
-import {SharedModule} from '../shared/shared.module';
+import { ResultListComponent } from './components/result-list/result-list.component';
+import {ResultHelperService} from './services/resultHelper/result-helper.service';
 
 @NgModule({
   imports: [
@@ -49,6 +53,7 @@ import {SharedModule} from '../shared/shared.module';
     ReactiveFormsModule,
     MaterialModule,
     PlayerModule,
+    YoutubeModule,
     SharedModule,
     MaterialModule
   ],
@@ -68,6 +73,7 @@ import {SharedModule} from '../shared/shared.module';
     pysRequestOptionsProvider,
     pysAuthHttpFactoryProvider,
     LoginService,
+    SearchHelperService,
     StorageService
   ]
 })

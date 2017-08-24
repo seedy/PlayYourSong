@@ -5,9 +5,16 @@ md-toolbar {
     height: 48px;
     display: flex;
     flex: 3 1 auto;
-    & > .mat-input-container {
+    & > .search-menu {
       padding-top: 4px;
+    }
+    & > .mat-input-container {
+      $posCorrection: 10px;
+      padding: 4px 4px 0 8px;
       width: 100%;
+      height: calc(100% - #{$posCorrection});
+      position: relative;
+      top: -$posCorrection;
     }
 
     & > .search-sm {

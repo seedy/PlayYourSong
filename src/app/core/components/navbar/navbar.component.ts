@@ -1,5 +1,7 @@
-import {Component, OnInit, Output, EventEmitter, AfterViewInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoginService} from '../../../shared/services/login/login.service';
+import {SearchHelperService} from '../../services/searchHelper/searchHelper.service';
+import {Searchable} from '../../../shared/classes/searchable';
 
 @Component({
   selector: 'pys-navbar',
@@ -9,11 +11,23 @@ import {LoginService} from '../../../shared/services/login/login.service';
 export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   search = '';
-  constructor(public loginService: LoginService) {
+  activeServices: Searchable[] = [];
+  services: Searchable[] = [];
+
+  constructor(public loginService: LoginService, public searchHelper: SearchHelperService) {
   }
 
   ngOnInit() {
     this.initLoggedIn();
+    this.initSearchServices();
+  }
+
+  onChange(): void {
+    this.services.forEach( (service) => service.active = this.activeServices.some( (active) => service.id === active.id ));
+  }
+
+  query(): void {
+    this.searchHelper.query(this.search);
   }
 
   checkToken(): void {
@@ -32,4 +46,10 @@ export class NavbarComponent implements OnInit {
       }
     );
   }
+
+  private initSearchServices(): void {
+    this.services = this.searchHelper.getServices();
+    this.activeServices = this.services.filter( (service) => service.active);
+  }
+
 }

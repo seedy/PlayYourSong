@@ -29,14 +29,19 @@ export class YoutubeSearchService {
   /**
    * Youtube data search API
    * @param string
+   * @param maxResults
+   * @param pageToken
    * @returns {Observable<any>}
    */
-  queryVideo(string: string): Observable<any> {
+  queryVideo(string: string, maxResults?: number, pageToken?: string): Observable<any> {
     let query = string.replace(/\s/,'+');
-    const url = this.endpoint + query;
+    let url = this.endpoint + query + '&maxResults=' + (maxResults || 10);
 
+    if (pageToken) {
+      url += ('&pageToken=' + pageToken);
+    }
     return this.http.get(url)
-      .map((response) => response.json())
+      .map((response) => Object.assign(response.json(), {query: string}))
       .catch((err, caught) => this.errorMessage.handleError(err, caught, true));
   }
 

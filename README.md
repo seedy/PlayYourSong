@@ -2,16 +2,28 @@
 [![Build Status](https://travis-ci.org/seedy/PlayYourSong.svg?branch=master)](https://travis-ci.org/seedy/PlayYourSong)
 [![Coverage Status](https://coveralls.io/repos/github/seedy/PlayYourSong/badge.svg?branch=master)](https://coveralls.io/github/seedy/PlayYourSong?branch=master)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 
 Currently in progress.
 
+## Installing
+Install NPM (dev version : 5.3.0) and NodeJs (dev version : 6.9.4)
+Run `npm install` in the root directory of the project
+
 ## Development server
 
+### Frontend
+
+#### NPM layer
+Run `npm serve:front` for a dev server. Navigate to `http://localhost:3000/`.
+
+#### Angular CLI
 Run `ng serve` for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
 
-### NPM layer
-Run `npm start` for the same behaviour.
+### Backend
+
+Run `npm serve:back` for your backend dev server. By default it's listening to `http://localhost:3002/`
+
 
 ## Code scaffolding
 
@@ -36,10 +48,6 @@ Run `npm test` for a single run with code coverage
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
-
-## Running backend server
-
-
 
 ## Further help
 

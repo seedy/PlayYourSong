@@ -28,6 +28,7 @@ import {SearchHelperService} from './services/searchHelper/searchHelper.service'
 
 // modules
 import { MaterialModule } from '../material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {PlayerModule} from '../player/player.module';
 import {SharedModule} from '../shared/shared.module';
 import {YoutubeModule} from '../youtube/youtube.module';
@@ -52,10 +53,10 @@ import {ResultHelperService} from './services/resultHelper/result-helper.service
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    FlexLayoutModule,
     PlayerModule,
     YoutubeModule,
-    SharedModule,
-    MaterialModule
+    SharedModule
   ],
   exports: [],
   declarations: [
@@ -66,7 +67,8 @@ import {ResultHelperService} from './services/resultHelper/result-helper.service
     NavbarComponent,
     TracknavComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ResultListComponent
   ],
   providers: [
     pysConfigProvider,
@@ -74,6 +76,7 @@ import {ResultHelperService} from './services/resultHelper/result-helper.service
     pysAuthHttpFactoryProvider,
     LoginService,
     SearchHelperService,
+    ResultHelperService,
     StorageService
   ]
 })

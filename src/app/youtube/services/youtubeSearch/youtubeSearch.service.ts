@@ -1,10 +1,14 @@
-import {Injectable, Inject, OnInit} from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
-
+import { Injectable, Inject } from '@angular/core';
+import { Http } from '@angular/http';
+import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/skipWhile';
 
-import {ErrorMessageService} from '../../../shared/services/error-message/error-message.service';
+// config
 import {YOUTUBE_CONFIG, YoutubeConfig} from '../../config/youtubeConfig';
+
+// services
+import {ErrorMessageService} from '../../../shared/services/error-message/error-message.service';
 import {SearchHelperService} from '../../../core/services/searchHelper/searchHelper.service';
 
 @Injectable()
@@ -15,6 +19,7 @@ export class YoutubeSearchService {
 
   constructor(
     private http: Http,
+    private httpClient: HttpClient,
     private searchHelper: SearchHelperService,
     @Inject(YOUTUBE_CONFIG) config: YoutubeConfig,
     public errorMessage: ErrorMessageService
@@ -40,9 +45,16 @@ export class YoutubeSearchService {
     if (pageToken) {
       url += ('&pageToken=' + pageToken);
     }
-    return this.http.get(url)
-      .map((response) => Object.assign(response.json(), {query: string}))
-      .catch((err, caught) => this.errorMessage.handleError(err, caught, true));
-  }
 
+    return this.httpClient.get(url, {
+      reportProgress: true,
+      observe: 'events'
+    })
+    .skipWhile((response) => ! (response instanceof HttpResponse))
+    .map((response: HttpResponse<any>) => {
+      return Object.assign(response.body, {query: string});
+    })
+    .catch((err, caught) => this.errorMessage.handleError(err, caught, true));
+
+  }
 }

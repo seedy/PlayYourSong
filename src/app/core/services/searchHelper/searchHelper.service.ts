@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 
 import {Searchable} from '../../../shared/classes/searchable';
 import {ResultHelperService} from '../resultHelper/result-helper.service';
@@ -21,15 +23,13 @@ export class SearchHelperService {
     this.services.push(searchable);
   }
 
-  query(text: string): void {
-    this.services
-      .forEach((service) => {
-        if (service.active) {
-          service.query.call(service.service, text).subscribe(
-            (result) => this.resultHelper.storeResult(service.id, result)
-          );
-        }
-
+  query(text: string): Observable<any>[] {
+    return this.services
+      .filter((service) => service.active)
+      .map((service) => {
+        return service.query.call(service.service, text).subscribe(
+          (result) => this.resultHelper.storeResult(service.id, result)
+        );
       });
   }
 

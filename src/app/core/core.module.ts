@@ -1,5 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -20,11 +21,14 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
 import {pysConfigProvider} from './config/pysConfig';
 import {pysRequestOptionsProvider} from './config/pysHttpRequestOptions';
 import {pysAuthHttpFactoryProvider} from './config/pysAuthHttp.service';
+import {ProgressEventInterceptor} from './config/progressEvent.interceptor';
 
 // services
 import {LoginService} from '../shared/services/login/login.service';
 import {StorageService} from '../shared/services/storage/storage.service';
 import {SearchHelperService} from './services/searchHelper/searchHelper.service';
+import {ResultHelperService} from './services/resultHelper/result-helper.service';
+
 
 // modules
 import { MaterialModule } from '../material/material.module';
@@ -33,7 +37,6 @@ import {SharedModule} from '../shared/shared.module';
 import {YoutubeModule} from '../youtube/youtube.module';
 
 // components
-import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { WelcomeBarComponent } from './components/welcome-bar/welcome-bar.component';
@@ -42,7 +45,8 @@ import { TracknavComponent } from './components/tracknav/tracknav.component';
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
 import { ResultListComponent } from './components/result-list/result-list.component';
-import {ResultHelperService} from './services/resultHelper/result-helper.service';
+import { ProgressEventBarComponent } from './components/progress-event-bar/progress-event-bar.component';
+import {ProgressHelperService} from './services/progressHelper/progress-helper.service';
 
 @NgModule({
   imports: [
@@ -59,7 +63,6 @@ import {ResultHelperService} from './services/resultHelper/result-helper.service
   ],
   exports: [],
   declarations: [
-    LoadingSpinnerComponent,
     PageNotFoundComponent,
     HomeComponent,
     WelcomeBarComponent,
@@ -67,7 +70,8 @@ import {ResultHelperService} from './services/resultHelper/result-helper.service
     TracknavComponent,
     LoginComponent,
     RegisterComponent,
-    ResultListComponent
+    ResultListComponent,
+    ProgressEventBarComponent
   ],
   providers: [
     pysConfigProvider,
@@ -76,7 +80,13 @@ import {ResultHelperService} from './services/resultHelper/result-helper.service
     LoginService,
     SearchHelperService,
     ResultHelperService,
-    StorageService
+    ProgressHelperService,
+    StorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ProgressEventInterceptor,
+      multi: true
+    }
   ]
 })
 

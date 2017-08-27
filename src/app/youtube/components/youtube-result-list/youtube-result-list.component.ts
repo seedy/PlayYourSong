@@ -39,4 +39,8 @@ export class YoutubeResultListComponent implements OnInit {
       );
   }
 
+  onLoad(item) {
+    item.loaded = true;
+  }
+
 }

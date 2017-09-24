@@ -105,11 +105,13 @@ function create(userParam) {
         message += 'already exists';
         deferred.reject(errorHelper.generateError(message, 409));
       } else {
-        createUser();
+        return createUser()
+          .then((user) => deferred.resolve(autolog(user)));
       }
     });
 
   function createUser() {
+    const def = Q.defer();
     // set user object to userParam without the cleartext password
     const user = _.omit(userParam, 'password');
     // add hashed password to user object
@@ -118,10 +120,18 @@ function create(userParam) {
     db.users.insert(
       user,
       function (err, doc) {
-        if (err) deferred.reject(errorHelper.generateError(err.name + ': ' + err.message, 500));
+        if (err) def.reject(errorHelper.generateError(err.name + ': ' + err.message, 500));
 
-        deferred.resolve();
+        def.resolve(_.omit(user, 'hash'));
       });
+
+    return def.promise;
+  }
+
+  function autolog(credentials) {
+    return _.extend(credentials, {
+      token: jwt.sign({ sub: credentials._id }, config.secret)
+    });
   }
 
   return deferred.promise;

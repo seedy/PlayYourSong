@@ -70,15 +70,16 @@ export class LoginService {
       password: credentials.password
     };
     return this.http.post(url, JSON.stringify(json))
-    .map((response) => response.json())
-    .map((response) => {
-      if (response.token) {
-        this.storage.storeKey('token', response.token);
-      }
+      .map((response) => response.json())
+      .map((response) => {
+        if (response.token) {
+          this.storage.storeKey('token', response.token);
+          this.updateLoggedIn();
+        }
 
-      return response;
-    })
-    .catch((err, caught) => this.errorMessage.handleError(err, caught, true));
+        return response;
+      })
+      .catch((err, caught) => this.errorMessage.handleError(err, caught, true));
   }
 
   /**

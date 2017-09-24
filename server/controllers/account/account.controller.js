@@ -44,7 +44,13 @@ function login(req, res){
  */
 function register(req, res){
   accountService.create(req.body)
-    .then( () => res.sendStatus(200))
+    .then( (user) => {
+      if(user){
+        res.send(user);
+      } else {
+        res.sendStatus(200);
+      }
+    })
     .catch(errorHelper.respondError(res));
 }
 

@@ -28,6 +28,7 @@ import {LoginService} from '../shared/services/login/login.service';
 import {StorageService} from '../shared/services/storage/storage.service';
 import {SearchHelperService} from './services/searchHelper/searchHelper.service';
 import {ResultHelperService} from './services/resultHelper/result-helper.service';
+import {ProgressHelperService} from './services/progressHelper/progress-helper.service';
 
 
 // modules
@@ -46,7 +47,6 @@ import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
 import { ResultListComponent } from './components/result-list/result-list.component';
 import { ProgressEventBarComponent } from './components/progress-event-bar/progress-event-bar.component';
-import {ProgressHelperService} from './services/progressHelper/progress-helper.service';
 
 @NgModule({
   imports: [

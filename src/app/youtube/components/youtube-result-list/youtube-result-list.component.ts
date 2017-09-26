@@ -2,13 +2,14 @@ import {Component, OnInit, Input} from '@angular/core';
 import {YoutubeSearchService} from '../../services/youtubeSearch/youtubeSearch.service';
 
 import {Result} from '../../classes/result';
+import {ApiResultListComponent} from '../../../shared/classes/api-result-list-component';
 
 @Component({
   selector: 'pys-youtube-result-list',
   templateUrl: './youtube-result-list.component.html',
   styleUrls: ['./youtube-result-list.component.scss']
 })
-export class YoutubeResultListComponent implements OnInit {
+export class YoutubeResultListComponent implements OnInit, ApiResultListComponent {
   @Input() result: Result;
   public pageIndex = 0;
   public isLoading = false;

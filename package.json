@@ -5,6 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
+    "start:mongo": "mongod --dbpath C:/workspace/mongo/",
     "serve:front": "ng serve",
     "serve:back": "node server",
     "test": "ng test --single-run --code-coverage",
@@ -45,8 +46,6 @@
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0-beta.4",
-    "csurf": "^1.9.0",
-    "express-session": "^1.15.5",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",

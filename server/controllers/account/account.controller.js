@@ -5,14 +5,14 @@ const jwt = require('jsonwebtoken');
 const errorHelper = require('../../helpers/errorHelper.service');
 const accountService = require('../../services/account/account.service');
 
-// non-token routes
+// non-JWT routes
 router.post('/login', login);
 router.post('/register', register);
 
 // route middleware
 router.use(checkJwt);
 
-// token secured routes
+// JWT secured routes
 router.get('/test', testToken);
 /*router.get('/:_id', getAccount);
 router.put('/:_id', editAccount);

@@ -16,21 +16,27 @@ import {MaterialModule} from '../material/material.module';
 
 // components
 import { YoutubeResultListComponent } from './components/youtube-result-list/youtube-result-list.component';
+import { YoutubePlayerInstanceComponent } from './components/youtube-player-instance/youtube-player-instance.component';
+import {SharedModule} from '../shared/shared.module';
+import {PlayerLoaderService} from './services/player-loader/player-loader.service';
 
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SharedModule
   ],
   declarations: [
-    YoutubeResultListComponent
+    YoutubeResultListComponent,
+    YoutubePlayerInstanceComponent
   ],
   providers: [
     pysYoutubeConfigProvider,
     YoutubeSearchService,
-    SearchHelperService
+    SearchHelperService,
+    PlayerLoaderService
   ],
   exports: [
     YoutubeResultListComponent

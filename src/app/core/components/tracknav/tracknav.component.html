@@ -12,15 +12,7 @@
     </div>
     <pys-player-menu [fullMode]="open" class="tracknav-menu"></pys-player-menu>
     <!-- TODO : Playlist component -->
-    <md-list>
-      <!-- TODO : Track component -->
-      <md-list-item routerLink="{{track.path}}" *ngFor="let track of tracks">
-        <a [ngClass]="{'current': track.selected}">
-          <md-icon>{{track.thumbnail}}</md-icon>
-          <span class="track-title tracknav-open">{{track.text}}</span>
-        </a>
-      </md-list-item>
-    </md-list>
+    <pys-playlist></pys-playlist>
   </md-sidenav>
   <ng-content></ng-content>
 </md-sidenav-container>

@@ -1,0 +1,20 @@
+@import "_colors";
+
+:host-context(.mat-sidenav-closed) {
+  .tracknav-open{
+    display: none;
+  }
+
+  md-list-item {
+    color: black;
+  }
+}
+
+md-list-item {
+  .track-title {
+    color: white;
+  }
+  .current {
+    color: $pys-accent-default;
+  }
+}

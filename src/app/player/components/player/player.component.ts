@@ -1,5 +1,5 @@
 import {
-  AfterContentInit, Component, ComponentFactoryResolver, OnDestroy,
+  AfterContentInit, Component, ComponentFactoryResolver, ComponentRef, OnDestroy,
   ViewChild
 } from '@angular/core';
 import {PlayerHostDirective} from '../../player-host/player-host.directive';
@@ -7,6 +7,8 @@ import {Player} from '../../../shared/interfaces/player';
 import {Track} from '../../../shared/classes/track';
 
 import {PlayerSelectorService} from '../../services/player-selector.service';
+import {PlaylistControlService} from '../../../shared/services/playlist-control/playlist-control.service';
+import {CircularList} from '../../../shared/classes/circular-list';
 
 @Component({
   selector: 'pys-player',
@@ -15,35 +17,45 @@ import {PlayerSelectorService} from '../../services/player-selector.service';
 })
 export class PlayerComponent implements AfterContentInit, OnDestroy {
 
-  // TODO : choose how to receive and propagate current track info
-  track = new Track('', '', '', 'xYC_78PUrZg');
+  track: Track;
   @ViewChild(PlayerHostDirective) playerHost: PlayerHostDirective;
+
+  private componentRef: ComponentRef<any>;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
-    private playerSelectorService: PlayerSelectorService
+    private playerSelectorService: PlayerSelectorService,
+    private playlistControlService: PlaylistControlService
   ) { }
 
   ngAfterContentInit() {
-    this.loadPlayer();
+    this.playlistControlService.playlist$.subscribe((newList: CircularList<Track>) => this.playTrack(newList));
   }
 
   ngOnDestroy() {
     this.destroyPlayer();
   }
 
-  loadPlayer(): void {
-    // TODO : define component as a variable computed from the track data
-    // youtube special case
+  public playTrack(list: CircularList<Track>): void {
+    const track = list.getSelected();
+    if (this.track === track) {
+      return;
+    }
+    this.loadPlayer(track);
+  }
 
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.playerSelectorService.getComponentFactory('youtube'));
+  private loadPlayer(track: Track): void {
+    if (!this.componentRef || !this.track || track.origin !== this.track.origin) {
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.playerSelectorService.getComponentFactory(track.origin));
 
-    let viewContainerRef = this.playerHost.viewContainerRef;
-    viewContainerRef.clear();
+      const viewContainerRef = this.playerHost.viewContainerRef;
+      viewContainerRef.clear();
 
-    let componentRef = viewContainerRef.createComponent(componentFactory);
+      this.componentRef = viewContainerRef.createComponent(componentFactory);
+    }
 
-    (<Player>componentRef.instance).track = this.track;
+
+    (<Player>this.componentRef.instance).track = this.track = track;
   }
 
   destroyPlayer(): void {

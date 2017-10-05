@@ -3,6 +3,7 @@ export class Track {
     public title: string,
     public author: string,
     public origin: string,
-    public url: string
+    public url: string,
+    public thumbnail: string
   ) {}
 }

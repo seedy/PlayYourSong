@@ -29,10 +29,6 @@ md-sidenav-container {
           align-items: center;
         }
 
-        md-list-item {
-          color: black;
-        }
-
         .tracknav-open {
           display: none;
         }
@@ -46,13 +42,7 @@ md-sidenav-container {
         display: none;
       }
 
-      md-list-item {
 
-        .track-title {
-          color: white;
-        }
-
-      }
     }
 
     .tracknav-header {

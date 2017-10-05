@@ -1,11 +1,11 @@
 export class CircularList<E> {
-  public list:E[];
+  public list: E[];
 
-  constructor(){
-    this.list = [];
+  constructor(list: E[] = []) {
+    this.list = list;
   }
 
-  getSelected(): E{
+  getSelected(): E {
     return this.list[0];
   }
 
@@ -20,14 +20,14 @@ export class CircularList<E> {
   }
 
   next(): E {
-    if(this.list.length > 1){
+    if (this.list.length > 1) {
       this.list.push(this.list.shift());
     }
     return this.getSelected();
   }
 
   previous(): E {
-    if(this.list.length > 1){
+    if (this.list.length > 1) {
       this.list.unshift(this.list.pop());
     }
     return this.getSelected();

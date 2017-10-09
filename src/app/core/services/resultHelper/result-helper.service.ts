@@ -4,6 +4,7 @@ import {Subject} from 'rxjs/Subject';
 @Injectable()
 export class ResultHelperService {
 
+  // BehaviourSubject -> init
   private resultSource = new Subject<any>();
 
   resultControl$ = this.resultSource.asObservable();

@@ -1,3 +1,9 @@
-<p>
-  playlist works!
-</p>
+<md-list>
+  <!-- TODO : Track component -->
+  <md-list-item *ngFor="let track of list.list">
+    <a [ngClass]="{'current': track === list.getSelected()}">
+      <md-icon>{{track.thumbnail}}</md-icon>
+      <span class="track-title tracknav-open">{{track.title}}</span>
+    </a>
+  </md-list-item>
+</md-list>

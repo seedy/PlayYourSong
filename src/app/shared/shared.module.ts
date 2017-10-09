@@ -12,6 +12,10 @@ import { ErrorMessageListComponent } from './components/error-message-list/error
 // services
 import {ErrorMessageService} from './services/error-message/error-message.service';
 
+// pipes
+import { UrlSafePipe } from './pipes/url-safe.pipe';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,11 +24,13 @@ import {ErrorMessageService} from './services/error-message/error-message.servic
   declarations: [
     MultistateButtonComponent,
     ErrorMessageListComponent,
+    UrlSafePipe,
   ],
   exports: [
     CommonModule,
     MultistateButtonComponent,
-    ErrorMessageListComponent
+    ErrorMessageListComponent,
+    UrlSafePipe
   ],
   providers: [
     ErrorMessageService

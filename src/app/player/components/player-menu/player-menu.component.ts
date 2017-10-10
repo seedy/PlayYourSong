@@ -8,18 +8,12 @@ import { PlaylistControlService } from '../../../shared/services/playlist-contro
   styleUrls: ['./player-menu.component.scss']
 })
 export class PlayerMenuComponent implements OnInit {
-  playing: boolean;
   @Input() fullMode: boolean;
   constructor(private playlistControlService: PlaylistControlService) {
 
   }
 
   ngOnInit() {
-    this.playing = false;
-  }
-
-  playPause(): void {
-    this.playing = !this.playing;
   }
 
   notifySaveQueue(): void {

@@ -20,8 +20,12 @@ export class PlaylistComponent implements OnInit {
     this.loadPlaylist();
   }
 
-  loadPlaylist(): void {
+  public loadPlaylist(): void {
     this.playlistControlService.playlist$.subscribe((newList: CircularList<Track>) => this.list = newList);
+  }
+
+  public selectTrack(track: Track): void {
+    this.playlistControlService.selectControl(track);
   }
 
 }

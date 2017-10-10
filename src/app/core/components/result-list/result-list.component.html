@@ -9,7 +9,7 @@
         </div>
       </ng-template>
       <div [ngSwitch]="tab?.name">
-        <pys-youtube-result-list *ngSwitchCase="'youtube'" [result]="tab.result"></pys-youtube-result-list>
+        <pys-youtube-result-list *ngSwitchCase="'youtube'" [result]="tab.result" (onResultAdded)="addResult($event)"></pys-youtube-result-list>
         <div *ngSwitchDefault>Unknown results</div>
       </div>
     </md-tab>

@@ -1,8 +1,10 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {YoutubeSearchService} from '../../services/youtubeSearch/youtubeSearch.service';
 
 import {Result} from '../../classes/result';
 import {ApiResultListComponent} from '../../../shared/classes/api-result-list-component';
+import {Track} from '../../../shared/classes/track';
+import {ResultItem} from '../../classes/resultItem';
 
 @Component({
   selector: 'pys-youtube-result-list',
@@ -11,6 +13,7 @@ import {ApiResultListComponent} from '../../../shared/classes/api-result-list-co
 })
 export class YoutubeResultListComponent implements OnInit, ApiResultListComponent {
   @Input() result: Result;
+  @Output() onResultAdded = new EventEmitter<Track>();
   public pageIndex = 0;
   public isLoading = false;
 
@@ -42,6 +45,17 @@ export class YoutubeResultListComponent implements OnInit, ApiResultListComponen
 
   onLoad(item) {
     item.loaded = true;
+  }
+
+  addResult(result: ResultItem): void {
+    let track = new Track(
+      result.snippet.title,
+      result.snippet.channelTitle,
+      'youtube',
+      result.id.videoId,
+      result.snippet.thumbnails.default.url
+    );
+    return this.onResultAdded.emit(track);
   }
 
 }

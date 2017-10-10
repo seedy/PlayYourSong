@@ -29,7 +29,7 @@ import {StorageService} from '../shared/services/storage/storage.service';
 import {SearchHelperService} from './services/searchHelper/searchHelper.service';
 import {ResultHelperService} from './services/resultHelper/result-helper.service';
 import {ProgressHelperService} from './services/progressHelper/progress-helper.service';
-
+import {PlaylistControlService} from '../shared/services/playlist-control/playlist-control.service';
 
 // modules
 import { MaterialModule } from '../material/material.module';
@@ -86,7 +86,8 @@ import { ProgressEventBarComponent } from './components/progress-event-bar/progr
       provide: HTTP_INTERCEPTORS,
       useClass: ProgressEventInterceptor,
       multi: true
-    }
+    },
+    PlaylistControlService
   ]
 })
 

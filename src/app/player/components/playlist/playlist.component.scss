@@ -15,6 +15,6 @@ md-list-item {
     color: white;
   }
   .current {
-    color: $pys-accent-default;
+    text-decoration: underline;
   }
 }

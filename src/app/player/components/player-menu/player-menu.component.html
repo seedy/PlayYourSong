@@ -1,11 +1,6 @@
 <div>
   <pys-player></pys-player>
 </div>
-<div class="menu main-menu">
-  <button md-mini-fab (click)="playPause()">
-    <md-icon>{{playing? 'pause': 'play_arrow'}}</md-icon>
-  </button>
-</div>
 <div class="menu sub-menu" *ngIf="fullMode">
   <pys-clear-button class="menu-item" (onClearQueue)="notifyClearQueue()"></pys-clear-button>
   <pys-save-button class="menu-item" (onSaveQueue)="notifySaveQueue()"></pys-save-button>

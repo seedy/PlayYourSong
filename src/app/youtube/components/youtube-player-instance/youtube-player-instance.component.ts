@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, DoCheck, Input, ViewChild} from '@angular/core';
 import {Player} from '../../../shared/interfaces/player';
 import {Track} from '../../../shared/classes/track';
 import {PlayerLoaderService} from '../../services/player-loader/player-loader.service';
@@ -8,7 +8,7 @@ import {PlayerLoaderService} from '../../services/player-loader/player-loader.se
   templateUrl: './youtube-player-instance.component.html',
   styleUrls: ['./youtube-player-instance.component.scss']
 })
-export class YoutubePlayerInstanceComponent implements Player, OnInit, AfterViewInit {
+export class YoutubePlayerInstanceComponent implements Player, DoCheck, AfterViewInit {
   @Input() track: Track;
   @ViewChild('iframe') iframe;
 
@@ -29,8 +29,7 @@ export class YoutubePlayerInstanceComponent implements Player, OnInit, AfterView
     }).subscribe((control) => control);
   }
 
-  ngOnInit() {
+  ngDoCheck() {
     this.path = 'http://www.youtube.com/embed/' + this.track.url + '?enablejsapi=1';
   }
-
 }

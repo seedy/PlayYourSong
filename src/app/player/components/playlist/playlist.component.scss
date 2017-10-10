@@ -4,17 +4,13 @@
   .tracknav-open{
     display: none;
   }
-
-  md-list-item {
-    color: black;
-  }
 }
 
 md-list-item {
+  &.current {
+    border-bottom: 1px solid white;
+  }
   .track-title {
     color: white;
-  }
-  .current {
-    text-decoration: underline;
   }
 }

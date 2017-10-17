@@ -1,8 +1,8 @@
 import { InjectionToken } from '@angular/core';
 
-import { keys } from '../../../../secret/keys';
+import { environment } from '../../../environments/environment';
 
-const apiKey = keys.youtubeApiKey;
+const apiKey = environment.youtubeApiKey;
 
 export interface YoutubeConfig {
   apiEndpoint: string;

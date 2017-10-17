@@ -17,7 +17,7 @@
     "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build"
+    "heroku-postbuild": "ng build --env=prod"
   },
   "private": true,
   "dependencies": {

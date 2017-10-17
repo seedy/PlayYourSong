@@ -4,6 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
+    "start": "npm run serve:front",
     "ng": "ng",
     "start:mongo": "mongod --dbpath C:/workspace/mongo/",
     "serve:front": "ng serve",

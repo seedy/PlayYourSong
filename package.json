@@ -17,7 +17,7 @@
     "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --target=production -e ${NODE_ENV:-production} --aot"
+    "heroku-postbuild": "ng build --target=production --aot"
   },
   "private": true,
   "dependencies": {

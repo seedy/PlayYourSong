@@ -2,28 +2,28 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  MdAutocompleteModule, MdButtonModule, MdCardModule, MdCheckboxModule,
-  MdChipsModule, MdDialogModule, MdIconModule, MdInputModule, MdLineModule, MdListModule,
-  MdMenuModule, MdOptionModule, MdRadioModule, MdSelectModule,
-  MdSidenavModule, MdSliderModule, MdGridListModule, MdProgressSpinnerModule, MdTooltipModule,
-  MdToolbarModule, MdProgressBarModule, MdSnackBarModule, MdTabsModule, MdPaginatorModule
+  MatAutocompleteModule, MatButtonModule, MatCardModule, MatCheckboxModule,
+  MatChipsModule, MatDialogModule, MatIconModule, MatInputModule, MatLineModule, MatListModule,
+  MatMenuModule, MatOptionModule, MatRadioModule, MatSelectModule,
+  MatSidenavModule, MatSliderModule, MatGridListModule, MatProgressSpinnerModule, MatTooltipModule,
+  MatToolbarModule, MatProgressBarModule, MatSnackBarModule, MatTabsModule, MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
-    MdAutocompleteModule, MdButtonModule, MdCardModule, MdCheckboxModule,
-    MdChipsModule, MdDialogModule, MdIconModule, MdInputModule, MdLineModule, MdListModule,
-    MdMenuModule, MdOptionModule, MdRadioModule, MdSelectModule,
-    MdSidenavModule, MdSliderModule, MdGridListModule, MdProgressSpinnerModule, MdTooltipModule,
-    MdToolbarModule, MdProgressBarModule, MdSnackBarModule, MdTabsModule, MdPaginatorModule
+    MatAutocompleteModule, MatButtonModule, MatCardModule, MatCheckboxModule,
+    MatChipsModule, MatDialogModule, MatIconModule, MatInputModule, MatLineModule, MatListModule,
+    MatMenuModule, MatOptionModule, MatRadioModule, MatSelectModule,
+    MatSidenavModule, MatSliderModule, MatGridListModule, MatProgressSpinnerModule, MatTooltipModule,
+    MatToolbarModule, MatProgressBarModule, MatSnackBarModule, MatTabsModule, MatPaginatorModule
   ],
   exports: [
-    MdAutocompleteModule, MdButtonModule, MdCardModule, MdCheckboxModule,
-    MdChipsModule, MdDialogModule, MdIconModule, MdInputModule, MdLineModule, MdListModule,
-    MdMenuModule, MdOptionModule, MdRadioModule, MdSelectModule,
-    MdSidenavModule, MdSliderModule, MdGridListModule, MdProgressSpinnerModule, MdTooltipModule,
-    MdToolbarModule, MdProgressBarModule, MdSnackBarModule, MdTabsModule, MdPaginatorModule
+    MatAutocompleteModule, MatButtonModule, MatCardModule, MatCheckboxModule,
+    MatChipsModule, MatDialogModule, MatIconModule, MatInputModule, MatLineModule, MatListModule,
+    MatMenuModule, MatOptionModule, MatRadioModule, MatSelectModule,
+    MatSidenavModule, MatSliderModule, MatGridListModule, MatProgressSpinnerModule, MatTooltipModule,
+    MatToolbarModule, MatProgressBarModule, MatSnackBarModule, MatTabsModule, MatPaginatorModule
   ],
   declarations: []
 })

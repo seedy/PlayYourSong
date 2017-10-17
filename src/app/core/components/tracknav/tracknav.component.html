@@ -1,17 +1,17 @@
-<md-sidenav-container>
-  <md-sidenav  mode="side" [opened]="open" (close)="onTracknavClosed()">
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="open" (close)="onTracknavClosed()">
     <div class="tracknav-header" fxLayout="column" fxLayoutAlign="center start">
       <div class="tracknav-closed">
-        <button md-icon-button (click)="toggle()">
-          <md-icon>menu</md-icon>
+        <button mat-icon-button (click)="toggle()">
+          <mat-icon>menu</mat-icon>
         </button>
       </div>
-      <button class="tracknav-open btn-inversed" fxFlexAlign="end" md-icon-button (click)="toggle()">
-        <md-icon>chevron_left</md-icon>
+      <button class="tracknav-open btn-inversed" fxFlexAlign="end" mat-icon-button (click)="toggle()">
+        <mat-icon>chevron_left</mat-icon>
       </button>
     </div>
     <pys-player-menu [fullMode]="open" class="tracknav-menu"></pys-player-menu>
     <pys-playlist></pys-playlist>
-  </md-sidenav>
+  </mat-drawer>
   <ng-content></ng-content>
-</md-sidenav-container>
+</mat-drawer-container>

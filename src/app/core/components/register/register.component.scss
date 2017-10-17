@@ -6,18 +6,18 @@
 form {
 
 }
-md-card {
+mat-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  md-progress-bar {
+  mat-progress-bar {
     &.inline-progress {
       padding-left: 5em;
       width: 10em;
       display: inline-block;
     }
   }
-  md-card-content {
+  mat-card-content {
     width: 100%;
   }
   .pys-form-group {

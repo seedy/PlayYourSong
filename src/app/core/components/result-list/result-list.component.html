@@ -1,17 +1,17 @@
 <section class="result-container">
-  <md-tab-group>
-    <md-tab *ngFor="let tab of tabs">
-      <ng-template md-tab-label>
+  <mat-tab-group>
+    <mat-tab *ngFor="let tab of tabs">
+      <ng-template mat-tab-label>
         <div fxLayout="row" fxLayoutAlign="space-around center">
           <span>{{tab?.name}}</span>
           <span *ngIf="tab?.count > 0">({{tab.count}})</span>
-          <md-icon (click)="close(tab)" >close</md-icon>
+          <mat-icon (click)="close(tab)" >close</mat-icon>
         </div>
       </ng-template>
       <div [ngSwitch]="tab?.name">
         <pys-youtube-result-list *ngSwitchCase="'youtube'" [result]="tab.result" (onResultAdded)="addResult($event)"></pys-youtube-result-list>
         <div *ngSwitchDefault>Unknown results</div>
       </div>
-    </md-tab>
-  </md-tab-group>
+    </mat-tab>
+  </mat-tab-group>
 </section>

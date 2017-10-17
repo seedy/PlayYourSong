@@ -1,67 +1,67 @@
-<md-grid-list cols="4" rowHeight="100px">
-  <md-grid-tile
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
     *ngFor="let tile of tiles"
     [colspan]="tile.cols"
     [rowspan]="tile.rows"
     [style.background]="tile.color">
     <span class="title">{{tile.title}}</span>
-  </md-grid-tile>
-  <md-grid-tile
+  </mat-grid-tile>
+  <mat-grid-tile
     [colspan]="4"
     [rowspan]="6"
     [style.background]="'#ffca28'">
-    <md-list>
-      <span md-subheader>Search your favorite songs cross-applications</span>
-        <md-list-item>
-          <md-chip-list>
-            <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-soundcloud'"></md-icon>
-            <md-chip><a class="link">Register</a></md-chip>
-            <md-chip><a class="link">Sync</a></md-chip>
-          </md-chip-list>
-        </md-list-item>
-        <md-list-item>
-          <md-chip-list>
-            <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-youtube'"></md-icon>
-            <md-chip><a class="link">Register</a></md-chip>
-            <md-chip><a class="link">Sync</a></md-chip>
-          </md-chip-list>
-        </md-list-item>
-        <md-list-item>
-          <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-vimeo'"></md-icon>
-          <md-chip-list>
-            <md-chip><a class="link">Register</a></md-chip>
-            <md-chip><a class="link">Sync</a></md-chip>
-          </md-chip-list>
-        </md-list-item>
-        <md-list-item>
-          <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-bandcamp'"></md-icon>
-          <md-chip-list>
-            <md-chip><a class="link">Register</a></md-chip>
-            <md-chip><a class="link">Sync</a></md-chip>
-          </md-chip-list>
-        </md-list-item>
-        <md-list-item>
-          <md-icon md-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-twitch'"></md-icon>
-          <md-chip-list>
-            <md-chip><a class="link">Register</a></md-chip>
-            <md-chip><a class="link">Sync</a></md-chip>
-          </md-chip-list>
-        </md-list-item>
-    </md-list>
-  </md-grid-tile>
-  <md-grid-tile
+    <mat-list>
+      <span mat-subheader>Search your favorite songs cross-applications</span>
+        <mat-list-item>
+          <mat-chip-list>
+            <mat-icon mat-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-soundcloud'"></mat-icon>
+            <mat-chip><a class="link">Register</a></mat-chip>
+            <mat-chip><a class="link">Sync</a></mat-chip>
+          </mat-chip-list>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-chip-list>
+            <mat-icon mat-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-youtube'"></mat-icon>
+            <mat-chip><a class="link">Register</a></mat-chip>
+            <mat-chip><a class="link">Sync</a></mat-chip>
+          </mat-chip-list>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-vimeo'"></mat-icon>
+          <mat-chip-list>
+            <mat-chip><a class="link">Register</a></mat-chip>
+            <mat-chip><a class="link">Sync</a></mat-chip>
+          </mat-chip-list>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-bandcamp'"></mat-icon>
+          <mat-chip-list>
+            <mat-chip><a class="link">Register</a></mat-chip>
+            <mat-chip><a class="link">Sync</a></mat-chip>
+          </mat-chip-list>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-avatar [fontSet]="'fa'" [fontIcon]="'fa-twitch'"></mat-icon>
+          <mat-chip-list>
+            <mat-chip><a class="link">Register</a></mat-chip>
+            <mat-chip><a class="link">Sync</a></mat-chip>
+          </mat-chip-list>
+        </mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile
     [colspan]="3"
     [rowspan]="3"
     [style.background]="'#d4e157'">
-    <md-list>
-      <md-list-item><span class="title">Build up your favorite playlist</span></md-list-item>
-      <md-list-item>
+    <mat-list>
+      <mat-list-item><span class="title">Build up your favorite playlist</span></mat-list-item>
+      <mat-list-item>
 
-      </md-list-item>
-    </md-list>
-  </md-grid-tile>
-  <md-grid-tile
+      </mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile
     [colspan]="1"
     [rowspan]="3"
-    [style.background]="'#66bb6a'"></md-grid-tile>
-</md-grid-list>
+    [style.background]="'#66bb6a'"></mat-grid-tile>
+</mat-grid-list>

@@ -1,41 +1,41 @@
 <pys-progress-event-bar></pys-progress-event-bar>
 <nav fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
-  <button class="title" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" md-button fxFlex="nogrow">
-    <md-icon>home</md-icon>
+  <button class="title" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" mat-button fxFlex="nogrow">
+    <mat-icon>home</mat-icon>
     <span>PlayYourSong</span>
   </button>
   <div fxFlex="grow" class="search-box" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-    <md-select placeholder="Sites" fxFlex="nogrow" class="search-menu" [(ngModel)]="activeServices" multiple (change)="onChange()">
-      <md-option *ngFor="let service of services" [value]="service">
+    <mat-select placeholder="Sites" fxFlex="nogrow" class="search-menu" [(ngModel)]="activeServices" multiple (change)="onChange()">
+      <mat-option *ngFor="let service of services" [value]="service">
         <span>{{service.name}}</span>
-      </md-option>
-    </md-select>
-    <md-input-container fxFlex="grow" class="search-sm" [floatPlaceholder]="'never'">
-      <input type="search" mdInput placeholder="Search" [(ngModel)]="search" (keyup.enter)="query()" />
-    </md-input-container>
-    <button (click)="query()" md-icon-button class="search-sm">
-      <md-icon>search</md-icon>
+      </mat-option>
+    </mat-select>
+    <mat-input-container fxFlex="grow" class="search-sm" [floatPlaceholder]="'never'">
+      <input type="search" matInput placeholder="Search" [(ngModel)]="search" (keyup.enter)="query()" />
+    </mat-input-container>
+    <button (click)="query()" mat-icon-button class="search-sm">
+      <mat-icon>search</mat-icon>
     </button>
   </div>
-  <button md-icon-button [mdMenuTriggerFor]="menu">
-    <md-icon>more_vert</md-icon>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
   </button>
-  <md-menu #menu="mdMenu">
-    <a md-menu-item routerLink="/register" routerLinkActive="active">
-      <md-icon>fingerprint</md-icon>
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item routerLink="/register" routerLinkActive="active">
+      <mat-icon>fingerprint</mat-icon>
       <span>Register</span>
     </a>
-    <a md-menu-item *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">
-      <md-icon>account_circle</md-icon>
+    <a mat-menu-item *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">
+      <mat-icon>account_circle</mat-icon>
       <span>Connect</span>
     </a>
-    <a md-menu-item *ngIf="isLoggedIn" (click)="logout()">
-      <md-icon>exit_to_app</md-icon>
+    <a mat-menu-item *ngIf="isLoggedIn" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
       <span>Logout</span>
     </a>
-    <button md-menu-item (click)="checkToken()">
-      <md-icon>network_check</md-icon>
+    <button mat-menu-item (click)="checkToken()">
+      <mat-icon>network_check</mat-icon>
       <span>Token</span>
     </button>
-  </md-menu>
+  </mat-menu>
 </nav>

@@ -1,66 +1,67 @@
 @import "_colors";
 
-$sidenav-closed-width: 200px;
+$drawer-closed-width: 200px;
 $user-agent-margin: 8px;
-md-sidenav-container {
+mat-drawer-container {
   width: 100%;
   min-height: calc(100vh - 2 * #{$user-agent-margin});
   height: 100%;
   margin: 0;
-  md-sidenav {
-    background-color: $pys-accent-darker;
-    &.mat-sidenav-side {
+}
 
-      &.mat-sidenav-closed {
-        width: auto;
-        overflow: hidden;
-        visibility: visible;
-        transform: translate3d(0,0,0) !important;
-        background-color: transparent;
+mat-drawer {
+  background-color: $pys-accent-darker;
+  &.mat-drawer-side {
 
-        .tracknav-header {
-          border-bottom: none;
-        }
+    &.mat-drawer[ng-reflect-opened='false'] {
+      width: auto;
+      overflow: hidden;
+      visibility: visible !important;
+      transform: translate3d(0,0,0) !important;
+      background-color: transparent;
 
-        .tracknav-menu {
-          max-width: calc(#{$sidenav-closed-width});
-          overflow: hidden;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .tracknav-open {
-          display: none;
-        }
-
-        .tracknav-closed {
-          display: block;
-        }
+      .tracknav-header {
+        border-bottom: none;
       }
 
-      .tracknav-closed {
+      .tracknav-menu {
+        max-width: calc(#{$drawer-closed-width});
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .tracknav-open {
         display: none;
       }
 
-
-    }
-
-    .tracknav-header {
-      padding-left: 8px;
-      @media (max-width: 960px) and (orientation: landscape){
-        min-height: 48px;
-      }
-      min-height: 80px;
-      border-bottom: 1px solid $pys-primary-default;
-
-      .btn-inversed {
-        color: $pys-primary-default;
+      .tracknav-closed {
+        display: block;
       }
     }
 
-    .tracknav-menu {
-      display: inline-block;
-      width: 100%;
+    .tracknav-closed {
+      display: none;
     }
+
+
+  }
+
+  .tracknav-header {
+    padding-left: 8px;
+    @media (max-width: 960px) and (orientation: landscape){
+      min-height: 48px;
+    }
+    min-height: 80px;
+    border-bottom: 1px solid $pys-primary-default;
+
+    .btn-inversed {
+      color: $pys-primary-default;
+    }
+  }
+
+  .tracknav-menu {
+    display: inline-block;
+    width: 100%;
   }
 }

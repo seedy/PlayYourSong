@@ -10,14 +10,10 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.sidenavOpen = false;
+    this.sidenavOpen = true;
   }
 
-  toggleSidenav(){
-    this.sidenavOpen = !this.sidenavOpen;
-  }
-
-  sideNavClosed(){
+  sideNavClosed() {
     this.sidenavOpen = false;
   }
 

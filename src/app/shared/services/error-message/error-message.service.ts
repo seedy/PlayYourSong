@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import {Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
-import {MdSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 
 @Injectable()
 export class ErrorMessageService {
 
-  constructor(public snackBar: MdSnackBar) { }
+  constructor(public snackBar: MatSnackBar) { }
 
   handleError(error: Response | any, caught: Observable<any>, activateSnackBar?: boolean): Observable<any> {
     let errMsg: string;

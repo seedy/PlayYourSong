@@ -7,10 +7,10 @@
 }
 
 
-md-list {
+mat-list {
   max-width: 360px;
   white-space: nowrap;
-  md-list-item {
+  mat-list-item {
     &.current {
       border-bottom: 1px solid white;
     }

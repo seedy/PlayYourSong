@@ -4,7 +4,7 @@
       <span class="youtube-list-avatar" md-list-avatar>
         <img [src]="item.snippet.thumbnails.default.url" (load)="onLoad(item)">
       </span>
-      <h4 md-line *ngIf="item.loaded">{{item.snippet.title}}</h4>
+      <a md-line *ngIf="item.loaded" (click)="addResult(item)">{{item.snippet.title}}</a>
       <span md-line *ngIf="item.loaded">{{item.snippet.channelTitle}}</span>
       <span md-line *ngIf="item.loaded">{{item.snippet.publishedAt | date}}</span>
     </md-list-item>

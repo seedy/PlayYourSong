@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ResultHelperService} from '../../services/resultHelper/result-helper.service';
+import {Track} from '../../../shared/classes/track';
+import {PlaylistControlService} from '../../../shared/services/playlist-control/playlist-control.service';
 
 @Component({
   selector: 'pys-result-list',
@@ -14,7 +16,10 @@ export class ResultListComponent implements OnInit {
     YoutubeSearchService: 'youtube'
   };
 
-  constructor(resultHelper: ResultHelperService) {
+  constructor(
+    private resultHelper: ResultHelperService,
+    public playlistControl: PlaylistControlService
+  ) {
     resultHelper.resultControl$.subscribe(
       (tab) => {
         tab.name = this.resultIds[tab.id];
@@ -22,6 +27,10 @@ export class ResultListComponent implements OnInit {
         this.tabs.push(tab);
       }
     );
+  }
+
+  ngOnInit() {
+
   }
 
   countExistingTabs(tab: any): number {
@@ -33,12 +42,12 @@ export class ResultListComponent implements OnInit {
     }, 0);
   }
 
-  ngOnInit() {
-
-  }
-
   close(index: number): void {
     this.tabs.splice(index, 1);
+  }
+
+  addResult(result: Track) {
+    this.playlistControl.queueInControl(result);
   }
 
 }

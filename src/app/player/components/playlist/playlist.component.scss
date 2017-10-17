@@ -4,17 +4,24 @@
   .tracknav-open{
     display: none;
   }
-
-  md-list-item {
-    color: black;
-  }
 }
 
-md-list-item {
-  .track-title {
-    color: white;
+
+md-list {
+  max-width: 360px;
+  white-space: nowrap;
+  md-list-item {
+    &.current {
+      border-bottom: 1px solid white;
+    }
+    .track-header {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: white;
+    }
+    .track-title {
+      color: white;
+    }
   }
-  .current {
-    text-decoration: underline;
-  }
+
 }

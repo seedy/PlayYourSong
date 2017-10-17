@@ -19,14 +19,8 @@ export class YoutubePlayerInstanceComponent implements Player, DoCheck, AfterVie
 
   ngAfterViewInit() {
     this.playerLoaderService.loadApi();
-    this.playerLoaderService.loadPlayer(this.iframe.nativeElement, {
-      height: '360',
-      width: '640',
-      videoId: this.track.url,
-      playerVars: {
-        origin: 'http://localhost'
-      }
-    }).subscribe((control) => control);
+    this.playerLoaderService.loadPlayer(this.iframe.nativeElement, {})
+      .subscribe((control) => control);
   }
 
   ngDoCheck() {

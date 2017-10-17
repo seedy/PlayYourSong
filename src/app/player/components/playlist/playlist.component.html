@@ -1,9 +1,9 @@
 <md-list>
   <!-- TODO : Track component -->
-  <md-list-item *ngFor="let track of list.list">
-    <a (click)="selectTrack(track)" [ngClass]="{'current': track === list.getSelected()}">
-      <img mdListAvatar [src]="track.thumbnail">
-      <span class="track-title tracknav-open">{{track.title}}</span>
+  <md-list-item *ngFor="let track of list.list" [ngClass]="{'current': track === list.getSelected()}">
+    <a class="track-header" (click)="selectTrack(track)">
+      <img matListAvatar [src]="track.thumbnail">
+      <span class="track-title">{{track.title}}</span>
     </a>
   </md-list-item>
 </md-list>

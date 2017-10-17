@@ -9,6 +9,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "npm run serve:front",
+    "heroku-start": "node heroku.js",
     "ng": "ng",
     "start:mongo": "mongod --dbpath C:/workspace/mongo/",
     "serve:front": "ng serve",

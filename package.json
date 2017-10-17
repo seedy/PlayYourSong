@@ -2,6 +2,10 @@
   "name": "play-your-song",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "6.9.4",
+    "npm": "5.4.2"
+  },
   "angular-cli": {},
   "scripts": {
     "start": "npm run serve:front",

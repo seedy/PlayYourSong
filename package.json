@@ -18,8 +18,7 @@
     "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-prebuild": "node heroku-config.js",
-    "heroku-postbuild": "ng build --env=heroku"
+    "heroku-postbuild": "node heroku-config.js && ng build --env=heroku"
   },
   "private": true,
   "dependencies": {

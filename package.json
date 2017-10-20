@@ -9,7 +9,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "npm run serve:front",
-    "heroku-start": "node heroku.js",
+    "heroku-start": "node heroku-server.js",
     "ng": "ng",
     "start:mongo": "mongod --dbpath C:/workspace/mongo/",
     "serve:front": "ng serve",
@@ -18,7 +18,8 @@
     "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --env=prod"
+    "heroku-prebuild": "node heroku-config.js",
+    "heroku-postbuild": "ng build --env=heroku"
   },
   "private": true,
   "dependencies": {

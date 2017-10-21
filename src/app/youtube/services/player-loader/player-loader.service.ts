@@ -13,7 +13,7 @@ export class PlayerLoaderService {
   constructor() { }
 
   public loadApi(): void {
-    (<any>window).onYoutubeIframeAPIReady = () => {
+    (<any>window).onYouTubeIframeAPIReady = () => {
       this.onApiReady();
     };
     const doc = window.document;

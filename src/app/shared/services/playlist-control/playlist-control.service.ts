@@ -34,8 +34,18 @@ export class PlaylistControlService {
     this.propagateQueueChange();
   }
 
+  public nextControl(): void {
+    this.queue.next();
+    this.propagateQueueChange();
+  }
+
   public queueInControl(track: Track): void {
     this.queue.push(track);
+    this.propagateQueueChange();
+  }
+
+  public queueOutControl(track: Track): void {
+    this.queue.remove(track);
     this.propagateQueueChange();
   }
 

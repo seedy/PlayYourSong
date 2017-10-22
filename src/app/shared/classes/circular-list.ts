@@ -55,4 +55,12 @@ export class CircularList<E> {
     }
     return this.getSelected();
   }
+
+  remove(elem: E): E {
+    const target = this.list.findIndex((listElem) => listElem === elem);
+    if (target !== -1) {
+      this.list.splice(target, 1);
+    }
+    return this.getSelected();
+  }
 }

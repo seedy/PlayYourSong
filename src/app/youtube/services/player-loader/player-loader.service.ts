@@ -1,5 +1,4 @@
-import {Injectable, Type} from '@angular/core';
-import {YoutubePlayerInstanceComponent} from '../../components/youtube-player-instance/youtube-player-instance.component';
+import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';

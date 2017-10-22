@@ -1,7 +1,7 @@
 <div>
   <pys-player></pys-player>
 </div>
-<div class="menu sub-menu" *ngIf="fullMode">
+<div class="menu sub-menu" *ngIf="fullMode" fxLayout="row" fxLayoutAlign="center center">
   <pys-clear-button class="menu-item" (onClearQueue)="notifyClearQueue()"></pys-clear-button>
   <pys-save-button class="menu-item" (onSaveQueue)="notifySaveQueue()"></pys-save-button>
   <pys-repeat-button class="menu-item" (onRepeatModeChanged)="notifyRepeatMode($event)"></pys-repeat-button>

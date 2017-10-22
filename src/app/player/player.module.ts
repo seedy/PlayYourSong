@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 // 3rd-party dependencies imports
 import 'hammerjs';
@@ -25,6 +26,7 @@ import {PlaylistControlService} from '../shared/services/playlist-control/playli
   imports: [
     CommonModule,
     MaterialModule,
+    FlexLayoutModule,
     SharedModule
   ],
   declarations: [

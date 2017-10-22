@@ -1,9 +1,14 @@
 <mat-list>
   <!-- TODO : Track component -->
-  <mat-list-item *ngFor="let track of list.list" [ngClass]="{'current': track === list.getSelected()}">
-    <a class="track-header" (click)="selectTrack(track)">
+  <mat-list-item *ngFor="let track of list.list" [ngClass]="{'current': track === list.getSelected()}" fxLayout="row">
+    <a class="track-header" fxLayout="row" fxLayoutAlign="start center" (click)="selectTrack(track)">
       <img matListAvatar [src]="track.thumbnail">
       <span class="track-title">{{track.title}}</span>
     </a>
+    <div class="tracknav-open track-actions">
+      <button mat-icon-button (click)="removeTrack(track)">
+        <mat-icon>remove_from_queue</mat-icon>
+      </button>
+    </div>
   </mat-list-item>
 </mat-list>

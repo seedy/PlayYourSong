@@ -1,25 +1,36 @@
 @import "_colors";
-
+$list-width: 360px;
+$actions-width: 30px;
+$list-padding: 16px;
 :host-context(.mat-sidenav-closed) {
   .tracknav-open{
     display: none;
+  }
+  mat-list {
+    mat-list-item {
+      .track-header {
+        color: #000000;
+      }
+    }
   }
 }
 
 
 mat-list {
-  max-width: 360px;
+  max-width: $list-width;
   white-space: nowrap;
   mat-list-item {
     &.current {
       border-bottom: 1px solid white;
     }
     .track-header {
+      width: calc(#{$list-width} - 2 * #{$list-padding} - #{$actions-width});
       overflow: hidden;
       text-overflow: ellipsis;
       color: white;
     }
-    .track-title {
+    .track-actions {
+      width: $actions-width;
       color: white;
     }
   }

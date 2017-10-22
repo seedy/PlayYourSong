@@ -9,8 +9,17 @@ export class CircularList<E> {
     return this.list[0];
   }
 
+  copy(): E[] {
+    return this.list.slice();
+  }
+
   push(...elements: E[]): E {
     elements.forEach((element) => this.list.push(element));
+    return this.getSelected();
+  }
+
+  merge(list: E[]): E {
+    Array.prototype.push.apply(this.list, list);
     return this.getSelected();
   }
 
@@ -62,5 +71,14 @@ export class CircularList<E> {
       this.list.splice(target, 1);
     }
     return this.getSelected();
+  }
+
+  shuffle(): void {
+    for (let i = this.list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const x = this.list[i];
+      this.list[i] = this.list[j];
+      this.list[j] = x;
+    }
   }
 }

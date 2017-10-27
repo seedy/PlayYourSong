@@ -45,22 +45,25 @@ export class PlayerComponent implements AfterContentInit, OnDestroy {
   }
 
   private loadPlayer(track: Track): void {
-    if (!this.componentRef || !this.track || track.origin !== this.track.origin) {
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-        this.playerSelectorService.getComponentFactory(track.origin)
-      );
-
+    if (!this.componentRef || !this.track || !track || track.origin !== this.track.origin) {
       const viewContainerRef = this.playerHost.viewContainerRef;
       viewContainerRef.clear();
 
-      this.componentRef = viewContainerRef.createComponent(componentFactory);
+      if (track) {
+        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+          this.playerSelectorService.getComponentFactory(track.origin)
+        );
+
+        this.componentRef = viewContainerRef.createComponent(componentFactory);
+      }
     }
 
-
+    const oldTrack = (<Player>this.componentRef.instance).track;
     (<Player>this.componentRef.instance).track = this.track = track;
+    (<Player>this.componentRef.instance).onManualTrackChange(oldTrack, this.track);
   }
 
-  destroyPlayer(): void {
+  private destroyPlayer(): void {
 
   }
 

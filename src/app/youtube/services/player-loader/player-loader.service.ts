@@ -7,11 +7,13 @@ import 'rxjs/add/operator/map';
 export class PlayerLoaderService {
 
   private api = 'https://www.youtube.com/iframe_api';
-  apiReady = new Subject<any>();
+  private apiReady = new Subject<any>();
+
+  apiReady$ = this.apiReady.asObservable();
 
   constructor() { }
 
-  public loadApi(): void {
+  public loadApi(): Observable<any> {
     (<any>window).onYouTubeIframeAPIReady = () => {
       this.onApiReady();
     };
@@ -21,6 +23,8 @@ export class PlayerLoaderService {
     playerApiScript.src = this.api;
 
     doc.body.appendChild(playerApiScript);
+
+    return this.apiReady$;
   }
 
   public loadPlayer(selector, options): Observable<any> {

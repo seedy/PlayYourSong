@@ -9,11 +9,14 @@ import { PlaylistControlService } from '../../../shared/services/playlist-contro
 })
 export class PlayerMenuComponent implements OnInit {
   @Input() fullMode: boolean;
-  constructor(private playlistControlService: PlaylistControlService) {
+  shuffles = 0;
 
-  }
+  constructor(
+    private playlistControlService: PlaylistControlService
+  ) { }
 
   ngOnInit() {
+    this.getShuffleCount();
   }
 
   notifySaveQueue(): void {
@@ -29,11 +32,16 @@ export class PlayerMenuComponent implements OnInit {
   }
 
   notifyShuffle(): void {
-    this.playlistControlService.shuffleControlChange(true);
+    this.playlistControlService.shuffleControlChange();
   }
 
   notifyShuffleCanceled(): void {
-    this.playlistControlService.shuffleControlChange(false);
+    this.playlistControlService.cancelShuffleControl();
+  }
+
+  private getShuffleCount(): void {
+    this.playlistControlService.shuffleCountSource$
+      .subscribe((number) => this.shuffles = number);
   }
 
 }

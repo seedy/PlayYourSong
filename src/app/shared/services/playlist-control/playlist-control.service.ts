@@ -3,6 +3,8 @@ import { Subject } from 'rxjs/Subject';
 import {Track} from '../../classes/track';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {CircularList} from '../../classes/circular-list';
+import {AsyncSubject} from 'rxjs/AsyncSubject';
+import {RepeatMode} from '../../classes/repeat-mode';
 
 @Injectable()
 export class PlaylistControlService {
@@ -16,16 +18,20 @@ export class PlaylistControlService {
   private playlist = new BehaviorSubject<CircularList<Track>>(this.queue);
 
   private clearQueueSource = new Subject<void>();
-  private repeatModeSource = new Subject<string>();
-  private shuffleSource = new Subject<boolean>();
   private saveQueueSource = new Subject<void>();
+
+  private repeatMode: string;
+
+
+  private shuffleOrigin: Track[] = [];
+  private shuffleCount = 0;
+  private shuffleCountSource = new BehaviorSubject<number>(this.shuffleCount);
 
   public playlist$ = this.playlist.asObservable();
 
   public clearQueueControl$ = this.clearQueueSource.asObservable();
-  public repeatModeControl$ = this.repeatModeSource.asObservable();
-  public shuffleControl$ = this.shuffleSource.asObservable();
   public saveQueueControl$ = this.saveQueueSource.asObservable();
+  public shuffleCountSource$ = this.shuffleCountSource.asObservable();
 
   constructor() { }
 
@@ -34,9 +40,25 @@ export class PlaylistControlService {
     this.propagateQueueChange();
   }
 
+  public nextControl(): void {
+    this.queue.next();
+    this.propagateQueueChange();
+  }
+
   public queueInControl(track: Track): void {
     this.queue.push(track);
     this.propagateQueueChange();
+    this.propagateQueueShuffleImpact();
+  }
+
+  public queueOutControl(track: Track): void {
+    this.queue.remove(track);
+    this.propagateQueueChange();
+    this.propagateQueueShuffleImpact();
+  }
+
+  public getRepeatMode(): string {
+    return this.repeatMode;
   }
 
   /******************************/
@@ -50,11 +72,35 @@ export class PlaylistControlService {
 
   // TODO : integrate to player
   public repeatModeControlChange(mode: string): void {
-    this.repeatModeSource.next(mode);
+    this.repeatMode = mode;
   }
 
-  public shuffleControlChange(doShuffle: boolean): void {
-    this.shuffleSource.next(doShuffle);
+  public shuffleControlChange(): void {
+    if (this.queue.list.length === 0) {
+      return ;
+    }
+
+    if (this.shuffleCount === 0 && this.shuffleOrigin.length === 0) {
+      this.shuffleOrigin = this.queue.copy();
+    }
+
+    this.shuffleCount++;
+    this.propagateShuffleCount();
+
+    this.queue.shuffle();
+    this.propagateQueueChange();
+  }
+
+  public cancelShuffleControl(): void {
+    if (this.shuffleCount > 0) {
+      this.shuffleCount = 0;
+      this.propagateShuffleCount();
+      if (this.shuffleOrigin.length > 0) {
+        this.queue.clear();
+        this.queue.merge(this.shuffleOrigin);
+        this.propagateQueueChange();
+      }
+    }
   }
 
   // TODO : implement data storage
@@ -66,12 +112,37 @@ export class PlaylistControlService {
   /*     Private Functions      */
   /******************************/
 
+
+
+  /******************************/
+  /*     Clear Functions        */
+  /******************************/
+
+
   private clearQueue(): void {
     this.queue.clear();
     this.propagateQueueChange();
   }
 
+  private clearShuffle(): void {
+    this.shuffleCount = 0;
+    this.shuffleOrigin = [];
+  }
 
+  /******************************/
+  /*     Propagation fns        */
+  /******************************/
+
+  private propagateShuffleCount(): void {
+    this.shuffleCountSource.next(this.shuffleCount);
+  }
+
+  private propagateQueueShuffleImpact(): void {
+    if (this.shuffleCount > 0) {
+      this.clearShuffle();
+      this.propagateShuffleCount();
+    }
+  }
 
   private propagateQueueChange(): void {
     this.playlist.next(this.queue);

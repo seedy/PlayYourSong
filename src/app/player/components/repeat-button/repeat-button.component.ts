@@ -1,4 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {RepeatMode} from '../../../shared/classes/repeat-mode';
+import {PlaylistControlService} from '../../../shared/services/playlist-control/playlist-control.service';
 
 
 @Component({
@@ -10,37 +12,43 @@ export class RepeatButtonComponent implements OnInit {
 
   @Output() onRepeatModeChanged = new EventEmitter<string>();
   repeatModes = [
-    {
-      id: 'repeat-none',
-      tooltip: 'Toggle to repeat playlist',
-      icon: 'repeat',
-      themeColor: 'default'
-    },
-    {
-      id: 'repeat-list',
-      tooltip: 'Toggle to repeat track',
-      icon: 'repeat',
-      themeColor: 'primary'
-    },
-    {
-      id: 'repeat-track',
-      tooltip: 'Toggle not to repeat',
-      icon: 'repeat_one',
-      themeColor: 'primary'
-    }
+    new RepeatMode(
+      RepeatMode.NONE,
+      'Toggle to repeat playlist',
+      'repeat',
+      'default'
+    ),
+    new RepeatMode(
+      RepeatMode.LIST,
+      'Toggle to repeat track',
+      'repeat',
+      'primary'
+    ),
+    new RepeatMode(
+      RepeatMode.TRACK,
+      'Toggle not to repeat',
+      'repeat_one',
+      'primary'
+    )
   ];
 
-  constructor() { }
+  constructor(
+    private playlistControlService: PlaylistControlService
+  ) { }
 
   ngOnInit() {
-
+    this.repeatModeChanged(this.repeatModes[0].id);
   }
 
-  repeatModeChanged(id: string): void {
-    const mode = this.repeatModes.find((rmode) => rmode.id === id);
+  public repeatModeChanged(id: string): void {
+    const mode = this.getMode(id);
     if (mode) {
       this.onRepeatModeChanged.emit(mode.id);
     }
+  }
+
+  private getMode(id: string): RepeatMode {
+    return this.repeatModes.find((rmode: RepeatMode) => rmode.id === id);
   }
 
 }

@@ -3,6 +3,7 @@ import {Player} from '../../../shared/interfaces/player';
 import {Track} from '../../../shared/classes/track';
 import {PlayerLoaderService} from '../../services/player-loader/player-loader.service';
 import {PlaylistControlService} from '../../../shared/services/playlist-control/playlist-control.service';
+import {RepeatMode} from '../../../shared/classes/repeat-mode';
 
 @Component({
   selector: 'pys-youtube-player-instance',
@@ -26,7 +27,7 @@ export class YoutubePlayerInstanceComponent implements Player, AfterViewInit {
     this.loadPlayer();
   }
 
-  onManualTrackChange(oldTrack: Track, newTrack: Track): void {
+  public onManualTrackChange(oldTrack: Track, newTrack: Track): void {
     // expect @Input to have been modified, track and player to be truthy
     if (!this.track || !this.player || this.track !== newTrack) {
       return;
@@ -57,10 +58,21 @@ export class YoutubePlayerInstanceComponent implements Player, AfterViewInit {
     });
   }
 
-  private onTrackEnded(event) {
+
+  private onTrackEnded(event): void {
     // event 'track ended'
     if (event.data === this.YT.PlayerState.ENDED) {
-      this.playlistControlService.nextControl();
+      // handle repeat mode
+      const repeatMode = this.playlistControlService.getRepeatMode();
+      if (repeatMode === RepeatMode.NONE) {
+        return;
+      }
+      if (repeatMode === RepeatMode.TRACK) {
+        return this.player.playVideo();
+      }
+      if (repeatMode === RepeatMode.LIST) {
+        return this.playlistControlService.nextControl();
+      }
     }
   }
 }

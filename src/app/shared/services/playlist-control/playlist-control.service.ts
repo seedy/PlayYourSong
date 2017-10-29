@@ -10,11 +10,7 @@ import {RepeatMode} from '../../classes/repeat-mode';
 export class PlaylistControlService {
 
   // mock for dev
-  private queue = new CircularList([
-    new Track('Kingston town', '', 'youtube', 'w0c_dv0TUmU', 'info'),
-    new Track('Stairway to heaven', '', 'youtube', 'xYC_78PUrZg', 'queue_music'),
-    new Track('Riders on the storm', '', 'youtube', 'xYC_78PUrZg', 'touch_app')
-  ]);
+  private queue = new CircularList([]);
   private playlist = new BehaviorSubject<CircularList<Track>>(this.queue);
 
   private clearQueueSource = new Subject<void>();
@@ -70,13 +66,12 @@ export class PlaylistControlService {
     this.clearQueue();
   }
 
-  // TODO : integrate to player
   public repeatModeControlChange(mode: string): void {
     this.repeatMode = mode;
   }
 
   public shuffleControlChange(): void {
-    if (this.queue.list.length === 0) {
+    if (this.queue.list.length < 2) {
       return ;
     }
 
@@ -93,13 +88,13 @@ export class PlaylistControlService {
 
   public cancelShuffleControl(): void {
     if (this.shuffleCount > 0) {
-      this.shuffleCount = 0;
-      this.propagateShuffleCount();
       if (this.shuffleOrigin.length > 0) {
         this.queue.clear();
         this.queue.merge(this.shuffleOrigin);
         this.propagateQueueChange();
       }
+      this.clearShuffle();
+      this.propagateShuffleCount();
     }
   }
 
@@ -122,6 +117,7 @@ export class PlaylistControlService {
   private clearQueue(): void {
     this.queue.clear();
     this.propagateQueueChange();
+    this.propagateQueueShuffleImpact();
   }
 
   private clearShuffle(): void {

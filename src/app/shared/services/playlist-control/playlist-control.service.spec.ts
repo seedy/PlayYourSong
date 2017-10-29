@@ -9,7 +9,7 @@ import {Track} from '../../classes/track';
 import {CircularList} from '../../classes/circular-list';
 import {ClassesStub} from '../../../../testing/classes-stub';
 
-fdescribe('PlaylistControlService', () => {
+describe('PlaylistControlService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [PlaylistControlService, ClassesStub]

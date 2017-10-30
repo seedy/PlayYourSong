@@ -11,22 +11,24 @@ import {StorageService} from '../storage/storage.service';
 import {ErrorMessageService} from '../error-message/error-message.service';
 import {Subject} from 'rxjs/Subject';
 import {Credentials} from '../../classes/credentials';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Account} from '../../classes/account';
 
 
 @Injectable()
 export class LoginService {
 
   // variables holding login status as observable
-  private loggedInSource = new Subject<boolean>();
+  private loggedInSource = new BehaviorSubject<boolean>(this.isLoggedIn());
   isLoggedIn$ = this.loggedInSource.asObservable();
 
   endpoint: string;
   redirectUrl: string;
-  jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(
     private http: Http,
     private authHttp: AuthHttp,
+    private jwtHelper: JwtHelper,
     @Inject(APP_CONFIG) config: AppConfig,
     public storage: StorageService,
     public errorMessage: ErrorMessageService
@@ -39,13 +41,9 @@ export class LoginService {
    * @param credentials
    * @returns {Observable<any>}
    */
-  login(credentials: Credentials): Observable<any> {
+  public login(credentials: Credentials): Observable<any> {
     const url = this.endpoint + '/login';
-    const json = {
-      identifier: credentials.identifier,
-      password: credentials.password
-    };
-    return this.http.post(url, JSON.stringify(json))
+    return this.http.post(url, JSON.stringify(credentials))
       .map((response) => response.json())
       .map((response) => {
         if (response.token) {
@@ -58,19 +56,10 @@ export class LoginService {
       .catch((err, caught) => this.errorMessage.handleError(err, caught, true));
   }
 
-  /**
-   * Register API
-   * @param credentials
-   * @returns {Observable<any>}
-   */
-  register(credentials): Observable<any> {
+  public register(account: Account): Observable<any> {
     const url = this.endpoint + '/register';
-    const json = {
-      username: credentials.username,
-      email: credentials.email,
-      password: credentials.password
-    };
-    return this.http.post(url, JSON.stringify(json))
+
+    return this.http.post(url, JSON.stringify(account))
       .map((response) => response.json())
       .map((response) => {
         if (response.token) {
@@ -87,7 +76,7 @@ export class LoginService {
    * DEV ONLY! Check stored token against backend
    * @returns {Observable<any>}
    */
-  checkToken(): Observable<any> {
+  public checkToken(): Observable<any> {
     const url = this.endpoint + '/test';
     return this.authHttp.get(url)
     .catch((err, caught) =>
@@ -98,12 +87,12 @@ export class LoginService {
   /**
    * Log out
    */
-  logout(): void {
+  public logout(): void {
     this.storage.deleteKey('token');
     this.updateLoggedIn();
   }
 
-  isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     const token = this.storage.getKey('token');
     if (token) {
       return !this.jwtHelper.isTokenExpired(token);

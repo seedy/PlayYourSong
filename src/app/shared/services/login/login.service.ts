@@ -10,6 +10,7 @@ import {AppConfig, APP_CONFIG} from '../../../core/config/pysConfig';
 import {StorageService} from '../storage/storage.service';
 import {ErrorMessageService} from '../error-message/error-message.service';
 import {Subject} from 'rxjs/Subject';
+import {Credentials} from '../../classes/credentials';
 
 
 @Injectable()
@@ -38,7 +39,7 @@ export class LoginService {
    * @param credentials
    * @returns {Observable<any>}
    */
-  login(credentials): Observable<any> {
+  login(credentials: Credentials): Observable<any> {
     const url = this.endpoint + '/login';
     const json = {
       identifier: credentials.identifier,

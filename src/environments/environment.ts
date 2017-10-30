@@ -6,5 +6,6 @@
 import { keys } from '../../secret/keys';
 export const environment = {
   production: false,
+  port: 3002,
   youtubeApiKey: keys.youtubeApiKey
 };

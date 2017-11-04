@@ -6,7 +6,7 @@ import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/map";
 
 import { Account } from '../../../shared/classes/account';
-import {ErrorMessageService} from "../../../shared/services/error-message/error-message.service";
+import {ErrorMessageService} from '../../../shared/services/error-message/error-message.service';
 import {LoginService} from '../../../shared/services/login/login.service';
 
 @Component({

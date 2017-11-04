@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Response} from '@angular/http';
+import {HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import {MatSnackBar} from '@angular/material';
+import {AbstractControl} from '@angular/forms';
 
 @Injectable()
 export class ErrorMessageService {
@@ -29,7 +30,7 @@ export class ErrorMessageService {
     return Observable.throw(errMsg);
   }
 
-  mapErrorMessages(form, data): {} {
+  mapErrorMessages(form: AbstractControl, data): {} {
     return Object.keys(data)
       .reduce((keyHash, key) => {
         const errorMessages = keyHash[key] = [];

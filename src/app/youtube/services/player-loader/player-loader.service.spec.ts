@@ -4,7 +4,7 @@ import { PlayerLoaderService } from './player-loader.service';
 import {Observable} from 'rxjs/Observable';
 import {YoutubeStub} from '../../../../testing/youtube-stub';
 
-fdescribe('PlayerLoaderService', () => {
+describe('PlayerLoaderService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [

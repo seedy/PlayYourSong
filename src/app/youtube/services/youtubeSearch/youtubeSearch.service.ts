@@ -14,17 +14,18 @@ import {SearchHelperService} from '../../../core/services/searchHelper/searchHel
 @Injectable()
 export class YoutubeSearchService {
 
-  name = 'Youtube';
-  endpoint: string;
+  private name = 'Youtube';
+  public endpoint: string;
+
+  private queryFilter = '/search?part=snippet&type=video&key=';
 
   constructor(
-    private http: Http,
     private httpClient: HttpClient,
     private searchHelper: SearchHelperService,
     @Inject(YOUTUBE_CONFIG) config: YoutubeConfig,
-    public errorMessage: ErrorMessageService
+    private errorMessage: ErrorMessageService
   ) {
-    this.endpoint = config.apiEndpoint + '/search?part=snippet&type=video&key=' + config.apiKey + '&q=';
+    this.endpoint = config.apiEndpoint + this.queryFilter + config.apiKey + '&q=';
   }
 
   activate(): void {
@@ -39,7 +40,7 @@ export class YoutubeSearchService {
    * @returns {Observable<any>}
    */
   queryVideo(string: string, maxResults?: number, pageToken?: string): Observable<any> {
-    let query = string.replace(/\s/,'+');
+    let query = string.replace(/\s/, '+');
     let url = this.endpoint + query + '&maxResults=' + (maxResults || 10);
 
     if (pageToken) {

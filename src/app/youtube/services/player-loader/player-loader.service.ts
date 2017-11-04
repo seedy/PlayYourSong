@@ -28,7 +28,7 @@ export class PlayerLoaderService {
   }
 
   public loadPlayer(selector, options): Observable<any> {
-    return this.apiReady.map((YT) => {
+    return this.apiReady$.map((YT) => {
       if (YT['Player']) {
         return new YT.Player(selector, options);
       }

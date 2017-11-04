@@ -6,7 +6,7 @@ import {PlayerHostDirective} from '../../player-host/player-host.directive';
 import {Player} from '../../../shared/interfaces/player';
 import {Track} from '../../../shared/classes/track';
 
-import {PlayerSelectorService} from '../../services/player-selector.service';
+import {PlayerSelectorService} from '../../services/player-selector/player-selector.service';
 import {PlaylistControlService} from '../../../shared/services/playlist-control/playlist-control.service';
 import {CircularList} from '../../../shared/classes/circular-list';
 

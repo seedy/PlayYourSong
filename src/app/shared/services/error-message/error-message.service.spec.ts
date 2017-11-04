@@ -5,8 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 
 import { ErrorMessageService } from './error-message.service';
-
-fdescribe('ErrorMessageService', () => {
+describe('ErrorMessageService', () => {
   let snackbarStub;
   beforeEach(() => {
     snackbarStub = jasmine.createSpyObj('snackbar', ['open']);

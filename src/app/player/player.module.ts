@@ -19,7 +19,7 @@ import { PlayerHostDirective } from './player-host/player-host.directive';
 import { PlayerComponent } from './components/player/player.component';
 
 import {YoutubePlayerInstanceComponent} from '../youtube/components/youtube-player-instance/youtube-player-instance.component';
-import {PlayerSelectorService} from './services/player-selector.service';
+import {PlayerSelectorService} from './services/player-selector/player-selector.service';
 import {PlaylistControlService} from '../shared/services/playlist-control/playlist-control.service';
 
 @NgModule({

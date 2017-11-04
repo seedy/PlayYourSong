@@ -1,5 +1,5 @@
 import {Injectable, Type} from '@angular/core';
-import {YoutubePlayerInstanceComponent} from '../../youtube/components/youtube-player-instance/youtube-player-instance.component';
+import {YoutubePlayerInstanceComponent} from '../../../youtube/components/youtube-player-instance/youtube-player-instance.component';
 
 @Injectable()
 export class PlayerSelectorService {

@@ -18,7 +18,7 @@ import {Account} from '../../classes/account';
 @Injectable()
 export class LoginService {
 
-  public jwtHelper;
+  public jwtHelper = new JwtHelper();
 
   // variables holding login status as observable
   private loggedInSource = new BehaviorSubject<boolean>(this.isLoggedIn());
@@ -35,7 +35,6 @@ export class LoginService {
     public errorMessage: ErrorMessageService
   ) {
     this.endpoint = config.apiEndpoint + '/account';
-    this.jwtHelper = new JwtHelper();
   }
 
   /**

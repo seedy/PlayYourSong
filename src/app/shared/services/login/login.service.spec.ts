@@ -19,7 +19,7 @@ import {Credentials} from '../../classes/credentials';
 import {Account} from '../../classes/account';
 
 
-fdescribe('LoginService', () => {
+describe('LoginService', () => {
   let errorMessageServiceStub, storageServiceStub, appConfigStub;
   const msgServiceError = 'fixError';
 

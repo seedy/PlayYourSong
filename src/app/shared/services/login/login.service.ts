@@ -18,6 +18,8 @@ import {Account} from '../../classes/account';
 @Injectable()
 export class LoginService {
 
+  public jwtHelper;
+
   // variables holding login status as observable
   private loggedInSource = new BehaviorSubject<boolean>(this.isLoggedIn());
   isLoggedIn$ = this.loggedInSource.asObservable();
@@ -28,12 +30,12 @@ export class LoginService {
   constructor(
     private http: Http,
     private authHttp: AuthHttp,
-    private jwtHelper: JwtHelper,
     @Inject(APP_CONFIG) config: AppConfig,
     public storage: StorageService,
     public errorMessage: ErrorMessageService
   ) {
     this.endpoint = config.apiEndpoint + '/account';
+    this.jwtHelper = new JwtHelper();
   }
 
   /**

@@ -16,11 +16,10 @@ import {pysAuthHttpFactoryProvider} from '../../../core/config/pysAuthHttp.servi
 import {StorageService} from '../storage/storage.service';
 import {ErrorMessageService} from '../error-message/error-message.service';
 import {Credentials} from '../../classes/credentials';
-import {JwtHelperStub} from '../../../../testing/jwtHelper-stub';
 import {Account} from '../../classes/account';
 
 
-describe('LoginService', () => {
+fdescribe('LoginService', () => {
   let errorMessageServiceStub, storageServiceStub, appConfigStub;
   const msgServiceError = 'fixError';
 
@@ -40,7 +39,7 @@ describe('LoginService', () => {
       providers: [
         LoginService,
         AuthHttp,
-        {provide: JwtHelper, useClass: JwtHelperStub},
+        JwtHelper,
         pysAuthHttpFactoryProvider,
         {provide: ErrorMessageService, useValue: errorMessageServiceStub},
         {provide: StorageService, useValue: storageServiceStub},
@@ -310,26 +309,26 @@ describe('LoginService', () => {
     }));
 
   it('checks method isLoggedIn, no token',
-    inject([LoginService, StorageService, JwtHelper], (service: LoginService, storage: StorageService, jwtHelper: JwtHelper) => {
+    inject([LoginService, StorageService, JwtHelper], (service: LoginService, storage: StorageService) => {
       (storage.getKey as jasmine.Spy).and.returnValue(null);
 
       expect(service.isLoggedIn()).toBe(false);
     }));
 
   it('checks method isLoggedIn, token is expired',
-    inject([LoginService, StorageService, JwtHelper], (service: LoginService, storage: StorageService, jwtHelper: JwtHelper) => {
+    inject([LoginService, StorageService], (service: LoginService, storage: StorageService) => {
       const token = 'token';
       (storage.getKey as jasmine.Spy).and.returnValue(token);
-      (jwtHelper.isTokenExpired as jasmine.Spy).and.returnValue(true);
+      spyOn(service.jwtHelper, 'isTokenExpired').and.returnValue(true);
 
       expect(service.isLoggedIn()).toBe(false);
     }));
 
   it('checks method isLoggedIn, token is not expired',
-    inject([LoginService, StorageService, JwtHelper], (service: LoginService, storage: StorageService, jwtHelper: JwtHelper) => {
+    inject([LoginService, StorageService, JwtHelper], (service: LoginService, storage: StorageService) => {
       const token = 'token';
       (storage.getKey as jasmine.Spy).and.returnValue(token);
-      (jwtHelper.isTokenExpired as jasmine.Spy).and.returnValue(false);
+      spyOn(service.jwtHelper, 'isTokenExpired').and.returnValue(false);
 
       expect(service.isLoggedIn()).toBe(true);
     }));

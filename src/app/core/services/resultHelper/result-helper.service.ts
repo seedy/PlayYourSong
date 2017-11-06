@@ -11,11 +11,11 @@ export class ResultHelperService {
 
   constructor() { }
 
-  storeResult(id: string, result: any): void {
+  public storeResult(id: string, result: any): void {
     this.resultSource.next(this.getResultObject(id, result));
   }
 
-  getResultObject(id: string, result: any): Object {
+  private getResultObject(id: string, result: any): Object {
     return {
       id,
       result

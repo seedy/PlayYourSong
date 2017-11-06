@@ -4,7 +4,7 @@ import { ProgressHelperService } from './progress-helper.service';
 import {Observable} from 'rxjs/Observable';
 import {HttpResponse} from '@angular/common/http';
 
-fdescribe('ProgressHelperService', () => {
+describe('ProgressHelperService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ProgressHelperService]

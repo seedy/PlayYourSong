@@ -3,7 +3,7 @@ import {TestBed, inject, async} from '@angular/core/testing';
 import { ResultHelperService } from './result-helper.service';
 import {Observable} from 'rxjs/Observable';
 
-fdescribe('ResultHelperService', () => {
+describe('ResultHelperService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ResultHelperService]

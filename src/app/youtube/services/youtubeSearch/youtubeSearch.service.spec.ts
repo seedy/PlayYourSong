@@ -1,6 +1,6 @@
 import {TestBed, inject, async} from '@angular/core/testing';
 
-import {HttpClient, HttpErrorResponse, HttpEvent, HttpProgressEvent, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';

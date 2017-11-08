@@ -30,6 +30,7 @@ import {SearchHelperService} from './services/searchHelper/searchHelper.service'
 import {ResultHelperService} from './services/resultHelper/result-helper.service';
 import {ProgressHelperService} from './services/progressHelper/progress-helper.service';
 import {PlaylistControlService} from '../shared/services/playlist-control/playlist-control.service';
+import {ErrorMessageService} from '../shared/services/error-message/error-message.service';
 
 // modules
 import { MaterialModule } from '../material/material.module';
@@ -87,7 +88,8 @@ import { ProgressEventBarComponent } from './components/progress-event-bar/progr
       useClass: ProgressEventInterceptor,
       multi: true
     },
-    PlaylistControlService
+    PlaylistControlService,
+    ErrorMessageService
   ]
 })
 

@@ -10,8 +10,7 @@ import {Credentials} from '../../../shared/classes/credentials';
 @Component({
   selector: 'pys-login',
   templateUrl: 'login.component.html',
-  styleUrls: ['login.component.scss'],
-  providers: [ErrorMessageService]
+  styleUrls: ['login.component.scss']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -56,7 +55,7 @@ export class LoginComponent implements OnInit {
 
     this.loginForm.valueChanges
       .debounceTime(400)
-      .subscribe(data => this.onFormValueChanged(data));
+      .subscribe((data) => this.onFormValueChanged(data));
   }
 
   private onFormValueChanged(data): void {

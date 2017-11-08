@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/map";
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
 
 import { Account } from '../../../shared/classes/account';
 import {ErrorMessageService} from '../../../shared/services/error-message/error-message.service';
@@ -12,8 +12,7 @@ import {LoginService} from '../../../shared/services/login/login.service';
 @Component({
   selector: 'pys-register',
   templateUrl: 'register.component.html',
-  styleUrls: ['register.component.scss'],
-  providers: [ErrorMessageService]
+  styleUrls: ['register.component.scss']
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;

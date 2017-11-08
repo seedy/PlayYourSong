@@ -106,9 +106,7 @@ describe('YoutubeSearchService', () => {
             expect(result.results).toEqual(results);
           });
 
-        const req = httpMock.expectOne((request) => {
-          return request.url === expectedUrl && request.method === 'GET';
-        });
+        const req = httpMock.expectOne((request) => request.url === expectedUrl && request.method === 'GET');
         expect(req.request.reportProgress).toEqual(params.reportProgress);
 
         req.flush(options);

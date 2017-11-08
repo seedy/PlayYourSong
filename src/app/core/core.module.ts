@@ -21,7 +21,7 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
 import {pysConfigProvider} from './config/pysConfig';
 import {pysRequestOptionsProvider} from './config/pysHttpRequestOptions';
 import {pysAuthHttpFactoryProvider} from './config/pysAuthHttp.service';
-import {ProgressEventInterceptor} from './config/progressEvent.interceptor';
+import {ProgressEventInterceptor} from './config/progressEvent-interceptor/progressEvent.interceptor';
 
 // services
 import {LoginService} from '../shared/services/login/login.service';

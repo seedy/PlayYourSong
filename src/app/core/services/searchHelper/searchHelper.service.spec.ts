@@ -6,7 +6,7 @@ import {Searchable} from '../../../shared/classes/searchable';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-fdescribe('SearchHelperService', () => {
+describe('SearchHelperService', () => {
   let resultHelperStub;
 
   class MockClass {

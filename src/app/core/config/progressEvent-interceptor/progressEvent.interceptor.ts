@@ -3,7 +3,7 @@ import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpEventType} fro
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 
-import {ProgressHelperService} from '../services/progressHelper/progress-helper.service';
+import {ProgressHelperService} from '../../services/progressHelper/progress-helper.service';
 
 @Injectable()
 export class ProgressEventInterceptor implements HttpInterceptor {

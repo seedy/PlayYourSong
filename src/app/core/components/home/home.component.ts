@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     this.sidenavOpen = true;
   }
 
-  sideNavClosed() {
+  public sideNavClosed() {
     this.sidenavOpen = false;
   }
 

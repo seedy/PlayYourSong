@@ -8,7 +8,7 @@ import 'rxjs/add/operator/reduce';
 import {ProgressEventInterceptor} from './progressEvent.interceptor';
 import {ProgressHelperService} from '../../services/progressHelper/progress-helper.service';
 
-fdescribe('ResultHelperService', () => {
+describe('ProgressEvent Interceptor', () => {
   let progressHelperStub;
   beforeEach(() => {
     progressHelperStub = jasmine.createSpyObj('progressHelper', ['storeEvent']);

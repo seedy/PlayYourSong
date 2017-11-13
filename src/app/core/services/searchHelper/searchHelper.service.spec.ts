@@ -28,6 +28,7 @@ describe('SearchHelperService', () => {
     expect(service.register).toEqual(jasmine.any(Function));
     expect(service.query).toEqual(jasmine.any(Function));
     expect(service.getServices).toEqual(jasmine.any(Function));
+    expect(service.activateServices).toEqual(jasmine.any(Function));
   }));
 
   it('checks method register',
@@ -107,6 +108,37 @@ describe('SearchHelperService', () => {
       expect(fn).not.toHaveBeenCalled();
     }));
 
+  it('checks method activateServices, no service',
+    inject([SearchHelperService], (service: SearchHelperService) => {
+      const ids = ['mock'];
+      service.activateServices(ids);
+    }));
+
+  it('checks method activateServices',
+    inject([SearchHelperService], (service: SearchHelperService) => {
+      let services;
+      const name = 'mock';
+      const other = 'other';
+      const ids = [name];
+      const instance = new MockClass();
+      const fn = jasmine.createSpy('query');
+      service.register(name, instance, fn);
+
+      service.register(other, instance, fn);
+      services = service.getServices();
+      expect(services.length).toEqual(2);
+      services.forEach((item) => {
+        expect(item.active).toEqual(false);
+      });
+
+      service.activateServices(ids);
+
+      services = service.getServices();
+      expect(services.length).toEqual(2);
+      expect(service.getServices().length).toEqual(2);
+      expect(service.getServices()[0].active).toEqual(true);
+      expect(service.getServices()[1].active).toEqual(false);
+    }));
 
 
 });

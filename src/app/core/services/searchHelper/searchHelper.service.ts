@@ -36,4 +36,12 @@ export class SearchHelperService {
     return this.services;
   }
 
+  public activateServices(names: string[]): void {
+    this.services.forEach((service) => {
+      if (names.indexOf(service.name) !== -1) {
+        service.active = true;
+      }
+    });
+  }
+
 }

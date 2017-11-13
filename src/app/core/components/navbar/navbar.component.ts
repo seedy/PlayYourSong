@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   activeServices: Searchable[] = [];
   services: Searchable[] = [];
 
-  constructor(private router: Router,public loginService: LoginService, public searchHelper: SearchHelperService) {
+  constructor(private router: Router, private loginService: LoginService, private searchHelper: SearchHelperService) {
   }
 
   ngOnInit() {
@@ -24,25 +24,25 @@ export class NavbarComponent implements OnInit {
     this.initSearchServices();
   }
 
-  onChange(): void {
-    this.services.forEach( (service) => service.active = this.activeServices.some( (active) => service.id === active.id ));
+  public onChange(): void {
+    this.searchHelper.activateServices(this.activeServices.map((service) => service.name));
   }
 
-  query(): void {
+  public query(): void {
     this.router.navigate(['/search']);
     this.searchHelper.query(this.search);
   }
 
-  checkToken(): void {
-    this.loginService.checkToken().subscribe((result) => console.log(result));
+  public checkToken(): void {
+    this.loginService.checkToken().subscribe((result) => result);
   }
 
-  logout(): void {
+  public logout(): void {
     this.loginService.logout();
   }
 
   private initLoggedIn(): void {
-    this.isLoggedIn = this.loginService.isLoggedIn();
+    // behaviour subject
     this.loginService.isLoggedIn$.subscribe(
       status => {
         this.isLoggedIn = status;

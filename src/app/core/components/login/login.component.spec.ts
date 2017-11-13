@@ -1,5 +1,5 @@
 import {async, ComponentFixture, fakeAsync, inject, TestBed, tick} from '@angular/core/testing';
-import {FormGroup, ReactiveFormsModule} from '@angular/forms';
+import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/take';
@@ -58,9 +58,13 @@ fdescribe('LoginComponent', () => {
 
   it('checks component public api, construction and lifecycle', () => {
     expect(component).toBeTruthy();
-    expect(component.loginForm).toEqual(jasmine.any(FormGroup));
     expect(component.ngOnInit).toEqual(jasmine.any(Function));
     expect(component.ngOnInit as jasmine.Spy).toHaveBeenCalled();
+    expect(component.loginForm).toEqual(jasmine.any(FormGroup));
+    expect(component.loginForm.controls).toEqual(jasmine.objectContaining({
+      identifier: jasmine.any(FormControl),
+      password: jasmine.any(FormControl)
+  }));
     expect(component.errorMessages).toEqual({});
     expect(component.login).toEqual(jasmine.any(Function));
   });

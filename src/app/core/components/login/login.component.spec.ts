@@ -16,7 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {Credentials} from '../../../shared/classes/credentials';
 import {By} from '@angular/platform-browser';
 
-fdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let errorMessageListStub, errorMessageServiceStub, loginServiceStub;

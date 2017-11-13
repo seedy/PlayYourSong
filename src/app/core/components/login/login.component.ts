@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.createForm();
   }
 
-  login(): void {
+  public login(): void {
     // http request with form data
     const credentials = new Credentials(
       this.loginForm.value.identifier,

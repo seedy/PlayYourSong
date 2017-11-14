@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     this.createForm();
   }
 
-  register(): void {
+  public register(): void {
     // http request with form data
     const credentials = new Account(
       this.registerForm.value.password,
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  clean(): void {
+  public clean(): void {
     this.registerForm.reset();
   }
 

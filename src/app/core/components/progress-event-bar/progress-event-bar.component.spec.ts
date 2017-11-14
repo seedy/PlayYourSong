@@ -10,7 +10,7 @@ import { ProgressEventBarComponent } from './progress-event-bar.component';
 import {ProgressHelperService} from '../../services/progressHelper/progress-helper.service';
 import {HttpUploadProgressEvent} from '@angular/common/http/src/response';
 
-fdescribe('ProgressEventBarComponent', () => {
+describe('ProgressEventBarComponent', () => {
   let component: ProgressEventBarComponent;
   let fixture: ComponentFixture<ProgressEventBarComponent>;
   let progressHelperStub;

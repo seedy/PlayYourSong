@@ -112,7 +112,7 @@ describe('LoginComponent', () => {
         identifier: id,
         password: ''
       };
-      const error = {identifier: ['field is required']};
+      const error = {password: ['field is required']};
 
       component.loginForm.valueChanges
         .take(1)

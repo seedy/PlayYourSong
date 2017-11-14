@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProgressHelperService} from '../../services/progressHelper/progress-helper.service';
-import {HttpEvent, HttpEventType} from '@angular/common/http';
+import {HttpEvent, HttpEventType, HttpProgressEvent} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
 
@@ -11,9 +11,9 @@ import 'rxjs/add/observable/timer';
 })
 export class ProgressEventBarComponent implements OnInit {
 
-  progressMode: string;
-  progressStatus: number;
-  progressTotal: number;
+  public progressMode: string;
+  public progressStatus: number;
+  public progressTotal: number;
 
   constructor(
     public progressHelper: ProgressHelperService
@@ -33,7 +33,7 @@ export class ProgressEventBarComponent implements OnInit {
     this.progressMode = '';
   }
 
-  handleProgressEvents(event: HttpEvent<any>) {
+  private handleProgressEvents(event: HttpEvent<any>) {
     if (event.type === HttpEventType.Sent) {
       this.progressStatus = 0;
     }
@@ -47,7 +47,7 @@ export class ProgressEventBarComponent implements OnInit {
       } else {
         total = this.progressTotal;
       }
-      this.progressStatus = Math.round(100 * event.loaded / total);
+      this.progressStatus = total ? Math.round(100 * event.loaded / total) : 0;
     }
     if (event.type === HttpEventType.Response) {
       this.progressStatus = this.progressTotal;

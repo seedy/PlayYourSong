@@ -1,16 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageNotFoundComponent } from './page-not-found.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
-describe('PageNotFoundComponent', () => {
+fdescribe('PageNotFoundComponent', () => {
   let component: PageNotFoundComponent;
   let fixture: ComponentFixture<PageNotFoundComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageNotFoundComponent ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      declarations: [ PageNotFoundComponent ]
     })
     .compileComponents();
   }));

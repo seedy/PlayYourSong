@@ -14,7 +14,7 @@ import {LoginService} from '../../../shared/services/login/login.service';
 import {SearchHelperService} from '../../services/searchHelper/searchHelper.service';
 import {ClassesStub} from '../../../../testing/classes-stub';
 
-fdescribe('NavbarComponent', () => {
+describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
   let progressEventBarStub, loginServiceStub, searchHelperStub, mockComponentStub;

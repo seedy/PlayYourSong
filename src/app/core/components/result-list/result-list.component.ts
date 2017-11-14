@@ -33,21 +33,21 @@ export class ResultListComponent implements OnInit {
 
   }
 
-  countExistingTabs(tab: any): number {
+  public close(index: number): void {
+    this.tabs.splice(index, 1);
+  }
+
+  public onResultAdded(result: Track): void {
+    this.playlistControl.queueInControl(result);
+  }
+
+  private countExistingTabs(tab: any): number {
     return this.tabs.reduce( (total, tabbed) => {
       if (tabbed.id === tab.id) {
         total++;
       }
       return total;
     }, 0);
-  }
-
-  close(index: number): void {
-    this.tabs.splice(index, 1);
-  }
-
-  addResult(result: Track) {
-    this.playlistControl.queueInControl(result);
   }
 
 }

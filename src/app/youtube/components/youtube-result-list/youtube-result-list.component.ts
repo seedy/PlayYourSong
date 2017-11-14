@@ -13,7 +13,7 @@ import {ResultItem} from '../../classes/resultItem';
 })
 export class YoutubeResultListComponent implements OnInit, ApiResultListComponent {
   @Input() result: Result;
-  @Output() onResultAdded = new EventEmitter<Track>();
+  @Output() resultAdded = new EventEmitter<Track>();
   public pageIndex = 0;
   public isLoading = false;
 
@@ -55,7 +55,7 @@ export class YoutubeResultListComponent implements OnInit, ApiResultListComponen
       result.id.videoId,
       result.snippet.thumbnails.default.url
     );
-    return this.onResultAdded.emit(track);
+    return this.resultAdded.emit(track);
   }
 
 }

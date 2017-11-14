@@ -69,7 +69,7 @@ describe('HomeComponent', () => {
 
     spyOn(component, 'sideNavClosed');
 
-    tracknavEl.componentInstance.onClosed.emit();
+    tracknavEl.componentInstance.closed.emit();
     expect(component.sideNavClosed as jasmine.Spy).toHaveBeenCalled();
   });
 

@@ -7,7 +7,7 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 })
 export class TracknavComponent implements OnInit {
   @Input() open: boolean;
-  @Output() onClosed = new EventEmitter<void>();
+  @Output() closed = new EventEmitter<void>();
 
   constructor() { }
 
@@ -15,7 +15,7 @@ export class TracknavComponent implements OnInit {
   }
 
   onTracknavClosed(): void {
-    this.onClosed.emit();
+    this.closed.emit();
   }
 
   toggle(): void {

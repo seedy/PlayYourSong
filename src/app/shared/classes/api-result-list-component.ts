@@ -3,5 +3,5 @@ import {Track} from './track';
 
 export interface ApiResultListComponent {
   result: any;
-  onResultAdded: EventEmitter<Track>;
+  resultAdded: EventEmitter<Track>;
 }

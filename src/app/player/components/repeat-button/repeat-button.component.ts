@@ -1,6 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {RepeatMode} from '../../../shared/classes/repeat-mode';
-import {PlaylistControlService} from '../../../shared/services/playlist-control/playlist-control.service';
 
 
 @Component({
@@ -10,7 +9,7 @@ import {PlaylistControlService} from '../../../shared/services/playlist-control/
 })
 export class RepeatButtonComponent implements OnInit {
 
-  @Output() onRepeatModeChanged = new EventEmitter<string>();
+  @Output() repeatModeChanged = new EventEmitter<string>();
   repeatModes = [
     new RepeatMode(
       RepeatMode.NONE,
@@ -33,17 +32,16 @@ export class RepeatButtonComponent implements OnInit {
   ];
 
   constructor(
-    private playlistControlService: PlaylistControlService
   ) { }
 
   ngOnInit() {
-    this.repeatModeChanged(this.repeatModes[0].id);
+    this.onChangeRepeatMode(this.repeatModes[0].id);
   }
 
-  public repeatModeChanged(id: string): void {
+  public onChangeRepeatMode(id: string): void {
     const mode = this.getMode(id);
     if (mode) {
-      this.onRepeatModeChanged.emit(mode.id);
+      this.repeatModeChanged.emit(mode.id);
     }
   }
 

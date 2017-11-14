@@ -10,8 +10,8 @@ export class ShuffleButtonComponent implements OnInit {
 
   @Input() shuffles;
 
-  @Output() onShuffle = new EventEmitter<void>();
-  @Output() onShuffleCanceled = new EventEmitter<void>();
+  @Output() shuffled = new EventEmitter<void>();
+  @Output() shuffleCanceled = new EventEmitter<void>();
 
   constructor() {}
 
@@ -19,12 +19,12 @@ export class ShuffleButtonComponent implements OnInit {
   }
 
   shuffle(): void {
-    this.onShuffle.emit();
+    this.shuffled.emit();
   }
 
   cancelShuffles(): void {
     if (this.shuffles > 0) {
-      this.onShuffleCanceled.emit();
+      this.shuffleCanceled.emit();
     }
   }
 }

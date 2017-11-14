@@ -11,27 +11,27 @@ import {CircularList} from "../../classes/circular-list";
   styleUrls: ['multistate-button.component.scss']
 })
 export class MultistateButtonComponent implements OnInit{
-  @Input() tooltipPosition : string ;
-  state: ButtonState;
-  private buttonStates = new CircularList<ButtonState>();
-
-  constructor(private elRef: ElementRef) { }
-
-  ngOnInit() {
-    this.state = this.buttonStates.getSelected();
-  }
-
+  @Input() tooltipPosition: string ;
   @Input() set states(states: Object[]) {
     states
       .map(this.mapState)
       .forEach((btnState) => this.buttonStates.push(btnState));
   }
+  @Output() stateChanged = new EventEmitter<string>();
 
-  @Output() onStateChange = new EventEmitter<string>();
+  state: ButtonState;
 
-  toggleState(): void{
+  private buttonStates = new CircularList<ButtonState>();
+
+  constructor() { }
+
+  ngOnInit() {
+    this.state = this.buttonStates.getSelected();
+  }
+
+  toggleState(): void {
     this.state = this.buttonStates.next();
-    this.onStateChange.emit(this.state.id);
+    this.stateChanged.emit(this.state.id);
   }
 
   private mapState(state: {id: string, tooltip?: string, icon?: string, themeColor?: string}): ButtonState{

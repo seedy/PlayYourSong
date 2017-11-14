@@ -7,7 +7,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class ClearButtonComponent implements OnInit {
   tooltip = 'Click to clear current playlist';
-  @Output() onClearQueue = new EventEmitter<void>();
+  @Output() queueCleared = new EventEmitter<void>();
 
   constructor() { }
 
@@ -15,6 +15,6 @@ export class ClearButtonComponent implements OnInit {
   }
 
   clearQueue(): void {
-    this.onClearQueue.emit();
+    this.queueCleared.emit();
   }
 }

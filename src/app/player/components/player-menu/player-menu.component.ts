@@ -19,23 +19,23 @@ export class PlayerMenuComponent implements OnInit {
     this.getShuffleCount();
   }
 
-  notifySaveQueue(): void {
+  onSaveQueue(): void {
     this.playlistControlService.saveQueueControlChange();
   }
 
-  notifyClearQueue(): void {
+  onClearQueue(): void {
     this.playlistControlService.clearQueueControlChange();
   }
 
-  notifyRepeatMode(mode: string): void {
+  onRepeatMode(mode: string): void {
     this.playlistControlService.repeatModeControlChange(mode);
   }
 
-  notifyShuffle(): void {
+  onShuffled(): void {
     this.playlistControlService.shuffleControlChange();
   }
 
-  notifyShuffleCanceled(): void {
+  onShuffleCanceled(): void {
     this.playlistControlService.cancelShuffleControl();
   }
 

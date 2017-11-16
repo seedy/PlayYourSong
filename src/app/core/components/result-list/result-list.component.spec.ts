@@ -11,7 +11,7 @@ import {Tab} from '../../../shared/classes/tab';
 import {ClassesStub} from '../../../../testing/classes-stub';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-fdescribe('ResultListComponent', () => {
+describe('ResultListComponent', () => {
   let component: ResultListComponent;
   let fixture: ComponentFixture<ResultListComponent>;
   let youtubeResultListStub, resultHelperStub, playlistControlStub;

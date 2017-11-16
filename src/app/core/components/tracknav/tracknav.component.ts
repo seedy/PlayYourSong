@@ -5,20 +5,17 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
   templateUrl: './tracknav.component.html',
   styleUrls: ['./tracknav.component.scss']
 })
-export class TracknavComponent implements OnInit {
+export class TracknavComponent {
   @Input() open: boolean;
   @Output() closed = new EventEmitter<void>();
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  onTracknavClosed(): void {
+  public onTracknavClosed(): void {
     this.closed.emit();
   }
 
-  toggle(): void {
+  public toggle(): void {
     this.open = !this.open;
   }
 }

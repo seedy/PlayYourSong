@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Subject} from 'rxjs/Subject';
+import {Tab} from '../../../shared/classes/tab';
 
 @Injectable()
 export class ResultHelperService {
 
   // BehaviourSubject -> init
-  private resultSource = new Subject<any>();
+  private resultSource = new Subject<Tab>();
 
   resultControl$ = this.resultSource.asObservable();
 
@@ -15,11 +16,11 @@ export class ResultHelperService {
     this.resultSource.next(this.getResultObject(id, result));
   }
 
-  private getResultObject(id: string, result: any): Object {
-    return {
+  private getResultObject(id: string, result: any): Tab {
+    return new Tab(
       id,
       result
-    };
+  );
   }
 
 }

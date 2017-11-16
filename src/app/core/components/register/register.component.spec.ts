@@ -17,7 +17,7 @@ import {LoginService} from '../../../shared/services/login/login.service';
 import {RouterStub} from '../../../../testing/router-stub';
 import {Account} from '../../../shared/classes/account';
 
-fdescribe('RegisterComponent', () => {
+describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
   let errorMessageListStub, errorMessageServiceStub, loginServiceStub;

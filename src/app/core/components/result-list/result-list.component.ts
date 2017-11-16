@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {ResultHelperService} from '../../services/resultHelper/result-helper.service';
 import {Track} from '../../../shared/classes/track';
 import {PlaylistControlService} from '../../../shared/services/playlist-control/playlist-control.service';
+import {Tab} from '../../../shared/classes/tab';
 
 @Component({
   selector: 'pys-result-list',
   templateUrl: './result-list.component.html',
   styleUrls: ['./result-list.component.scss']
 })
-export class ResultListComponent implements OnInit {
+export class ResultListComponent {
 
-  tabs: any[] = [];
+  public tabs: Tab[] = [];
 
   private resultIds = {
     YoutubeSearchService: 'youtube'
@@ -18,10 +19,10 @@ export class ResultListComponent implements OnInit {
 
   constructor(
     private resultHelper: ResultHelperService,
-    public playlistControl: PlaylistControlService
+    private playlistControl: PlaylistControlService
   ) {
     resultHelper.resultControl$.subscribe(
-      (tab) => {
+      (tab: Tab) => {
         tab.name = this.resultIds[tab.id];
         tab.count = this.countExistingTabs(tab);
         this.tabs.push(tab);
@@ -29,12 +30,10 @@ export class ResultListComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-
-  }
-
   public close(index: number): void {
-    this.tabs.splice(index, 1);
+    if (index > -1) {
+      this.tabs.splice(index, 1);
+    }
   }
 
   public onResultAdded(result: Track): void {
